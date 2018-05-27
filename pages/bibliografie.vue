@@ -1,0 +1,17 @@
+<template>
+  <section class="container content">
+      <div>
+          <h2>{{ biblio.Titel }}</h2>
+          <div v-html="biblio.Content"></div>
+      </div>
+  </section>
+</template>
+<script>
+export default {
+  computed: {
+      biblio () {
+          return this.$store.getters.getBiblio[0]
+      }
+  }
+}
+</script>
