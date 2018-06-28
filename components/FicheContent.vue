@@ -1,25 +1,60 @@
 <template>
   <div class="fiche-content">
-      <article v-if="fiche.Beschrijving" id="beschrijving">
-          <h3 class="subtitle"><i class="fa" :class="[fiche.BeschrijvingIcoon, color]"></i>Beschrijving</h3>
-          <div v-html="fiche.Beschrijving"></div>
-      </article>
-      <article v-if="fiche.Werking" id="werking">
-          <h3 class="subtitle"><i class="fa" :class="[fiche.WerkingIcoon, color]"></i>Werking</h3>
-          <div v-html="fiche.Werking"></div>
-      </article>
-      <article v-if="fiche.Tips" id="tips">
-          <h3 class="subtitle"><i class="fa" :class="[fiche.TipsIcoon, color]"></i>Tips</h3>
-          <div v-html="fiche.Tips"></div>
-      </article>
-      <article v-if="fiche.Voorbeelden" id="voorbeelden">
-          <h3 class="subtitle"><i class="fa" :class="[fiche.VoorbeeldenIcoon, color]"></i>Voorbeelden</h3>
-          <div v-html="fiche.Voorbeelden"></div>
-      </article>
-      <article v-if="fiche.Reflectie" id="reflectie">
-          <h3 class="subtitle"><i class="fa" :class="[fiche.ReflectieIcoon, color]"></i>Reflectie</h3>
-          <div v-html="fiche.Reflectie"></div>
-      </article>
+      <section v-if="fiche.Beschrijving" id="beschrijving" class="section">
+          <div class="container">
+              <span class="icon is-small">
+                  <i :class="['far fa-hand-point-right', color]" aria-hidden="true"></i>
+              </span>
+              <span class="subtitle">
+                  Beschrijving
+              </span>
+              <div v-html="fiche.Beschrijving"></div>
+          </div>
+      </section>
+      <section v-if="fiche.Werking" id="werking" class="section">
+          <div class="container">
+              <span class="icon is-small">
+                  <i :class="['fas fa-cogs', color]" aria-hidden="true"></i>
+              </span>
+              <span class="subtitle">
+                  Werking
+              </span>
+              <div v-html="fiche.Werking"></div>
+          </div>
+      </section>
+      <section v-if="fiche.Tips" id="Tips" class="section">
+          <div class="container">
+              <span class="icon is-small">
+                  <i :class="['far fa-lightbulb', color]" aria-hidden="true"></i>
+              </span>
+              <span class="subtitle">
+                  Tips
+              </span>
+              <div v-html="fiche.Tips"></div>
+          </div>
+      </section>
+      <section v-if="fiche.Voorbeelden" id="Voorbeelden" class="section">
+          <div class="container">
+              <span class="icon is-small">
+                  <i :class="['far fa-image', color]" aria-hidden="true"></i>
+              </span>
+              <span class="subtitle">
+                 Voorbeelden 
+              </span>
+              <div v-html="fiche.Voorbeelden"></div>
+          </div>
+      </section>
+      <section v-if="fiche.Reflectie" id="Reflectie" class="section">
+          <div class="container">
+              <span class="icon is-small">
+                  <i :class="['fab fa-twitch', color]" aria-hidden="true"></i>
+              </span>
+              <span class="subtitle">
+                  Reflectie
+              </span>
+              <div v-html="fiche.Reflectie"></div>
+          </div>
+      </section>
   </div>
 </template>
 <script>

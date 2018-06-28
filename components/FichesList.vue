@@ -6,11 +6,7 @@
 
 <script>
 export default {
-  props: ['fiches'],
-  data () {
-      return {
-      }
-  }
+  props: ['fiches']
 }
 </script>
 

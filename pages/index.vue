@@ -18,7 +18,7 @@
             </article>
       </div>
     </section>
-    <toolbox-filter :themas="themas" :fiches="fiches"></toolbox-filter>
+    <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
   </div>  
 </template>
 

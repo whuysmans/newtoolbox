@@ -1,14 +1,17 @@
 <template>
   <div class="container">
-      <div class="tabs is-boxed is-large">
+      <div class="tabs is-boxed is-medium is-centered">
           <ul>
             <li v-for="thema in themas" 
                 :key="thema._id" 
-                class="tab"
-                :class="thema.Slug"
+                :class="[getActiveThema() === thema.Titel ? 'is-active' : '']"
                 @click="handleThemaClick">
-                <i class="fa" :class="[thema.Icoon, 'tekst-' + thema.Slug]"></i>
-                {{ thema.Titel }}
+                <a>
+                    <span class="icon is-small">
+                        <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
+                    </span>
+                    <span>{{ thema.Titel }}</span>
+                </a>
             </li>
         </ul>
       </div>
@@ -44,10 +47,10 @@ export default {
      handleThemaClick (event) {
         let name = event.target.outerText
         this.setActiveSubcat('')
-        if (this.getActiveThema() === name) {
+        if (this.getActiveThema() === name.trim()) {
             this.setActiveThema('')
         } else {
-        this.setActiveThema(name)
+        this.setActiveThema(name.trim())
         }
      }
  },
