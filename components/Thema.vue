@@ -2,12 +2,15 @@
   <div> 
       <div class="themaContent" v-if="isActiveThema">
           <div v-html="thema.Content"></div>
-          <a v-if="thema.ExtraContent" @click.prevent.stop="showExtra = true">Lees meer...</a>
+          <!-- <a v-if="thema.ExtraContent" @click.prevent.stop="showExtra = true">Lees meer...</a>
           <div v-if="showExtra" class="notification">
               <button class="delete" @click.prevent.stop="showExtra = false"></button>
               <div v-html="thema.ExtraContent"></div>
+          </div> -->
+          <div class="notification">
+              <div v-html="thema.ExtraContent"></div>
           </div>
-          <div class="buttons">
+          <div class="buttons" id="subcat-buttons">
               <a v-for="subcat in thema.Subcat" 
                  :key="subcat._id" 
                  class="button"
@@ -17,10 +20,10 @@
                  {{ subcat.display }}
               </a>
               <a v-if="!noneActive"
-                class="button is-outlined"
+                class="button is-outlined is-link"
                 @click="clearFilter"
               >
-                <span>clearFilter</span>
+                <span>clear filter</span>
                 <span class="icon is-small">
                     <i class="fas fa-times"></i>
                 </span>
@@ -49,7 +52,6 @@ export default {
         'getActiveSubcat'
       ]),
       handleSubcatClick (event) {
-          console.log(event.target)
           let subcat = event.target.outerText
           this.setActiveSubcat(subcat)
       },

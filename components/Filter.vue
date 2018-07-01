@@ -11,6 +11,12 @@
                         <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
                     </span>
                     <span>{{ thema.Titel }}</span>
+                    <span 
+                        v-if="getActiveThema() === thema.Titel" 
+                        class="icon icon-is-small" 
+                        @click="handleThemaClick">
+                        <i class="fas fa-times"></i>
+                    </span>
                 </a>
             </li>
         </ul>
@@ -66,6 +72,9 @@ export default {
      },
      showFilter () {
          return this.filteredFiches.length !== 0
+     },
+     themaIsActive () {
+         return this.getActiveThema() !== ''
      }
  }
 }

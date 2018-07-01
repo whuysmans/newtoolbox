@@ -16,7 +16,8 @@ const createStore = () => {
             activeState: '', 
             token: null,
             classSlug: {},
-            activeThema: ''
+            activeThema: '',
+            sortedFiches: []
         },
         mutations: {
             LOAD_INFO_FICHES (state, fiches) {
@@ -53,6 +54,16 @@ const createStore = () => {
             },
             SET_ACTIVE_THEMA (state, thema) {
                 state.activeThema = thema
+            },
+            SET_SORTED_FICHES (state) {
+                let sortedData = state.kernthemas.map((thema) => {
+                    return thema.Subcat.map((subcat) => {
+                        return state.infofiches.filter((fiche) => {
+                            return subcat.display.trim() === fiche.Subcategorie[0].display.trim()
+                        })
+                    })
+                }).reduce((a, b) => a.concat(b), []).reduce((a, b) => a.concat(b), [])
+                state.sortedFiches = sortedData
             }
         },
         actions: {
@@ -67,6 +78,7 @@ const createStore = () => {
                   commit('LOAD_HOME_INFO', results[2].data.entries[0])
                   commit('LOAD_INFO_FICHES', results[0].data.entries)
                   commit('LOAD_BIBLIO', results[3].data.entries)
+                  commit('SET_SORTED_FICHES')
             },
             setToken (context, token) {
                 context.commit('SET_TOKEN', token)
@@ -120,19 +132,22 @@ const createStore = () => {
             },
             getInfoFicheIndex (state) {
                 return (name) => {
-                    return state.infofiches.indexOf(state.infofiches.filter((fiche) => {
+                    return state.sortedFiches.indexOf(state.sortedFiches.filter((fiche) => {
                         return fiche.Slug.toLowerCase() === name
                     })[0])
                 }
             },
             getSlugByNumber (state) {
                 return (nr) => {
-                    return state.infofiches[nr].Slug
+                    return state.sortedFiches[nr].Slug
                 }
             },
             getNumberOfFiches (state) {
                 return state.infofiches.length
-            }
+            },
+            getSortedFiches (state) {
+                return state.sortedFiches 
+            } 
         }
     })
 }
