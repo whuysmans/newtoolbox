@@ -28,7 +28,7 @@
     </nav>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
    props: ['fiche'],
    
@@ -36,6 +36,9 @@ export default {
        ...mapActions([
          'setActiveSubcat',
          'setActiveThema'
+       ]),
+       ...mapGetters([
+         'getRelatedSubcats'
        ]),
        handleThemaClick (event) {
            this.setActiveThema(event.target.outerText.trim())

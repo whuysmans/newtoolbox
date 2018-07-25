@@ -1,6 +1,7 @@
 <template>
-  <div>
-    <section class="hero">
+  <transition name="page">
+    <div id="main">
+    <section class="section hero">
       <div class="container">
         <h1 class="title">
           {{ homeInfo.Titel }}
@@ -11,7 +12,7 @@
       </div>
     </section>
     <transition name="fade">
-      <section class="section" v-if="!filterIsActive">
+      <section class="section intro-copy" v-if="!filterIsActive">
         <div class="container">
               <div v-html="homeInfo.Beschrijving"></div>
               <article class="message is-link">
@@ -21,7 +22,8 @@
       </section>
     </transition>
     <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
-  </div>  
+  </div>
+  </transition>
 </template>
 
 <script>
@@ -37,6 +39,20 @@ export default {
          'getActiveThema',
          'getActiveSubcat'
      ])
+  },
+  created () {
+    console.log(this.$route)
+    if (this.$route.query) {
+      if (this.$route.query.thema) {
+        this.$store.dispatch('setActiveThema', this.$route.query.thema)
+      }
+      if (this.$route.query.subcat) {
+        this.$store.dispatch('setActiveSubcat', this.$route.query.subcat)
+      }
+    } else {
+      this.$store.dispatch('setActiveThema', '')
+      this.$store.dispatch('setActiveSubcat', '')
+    }
   },
   computed: {
     themas () {

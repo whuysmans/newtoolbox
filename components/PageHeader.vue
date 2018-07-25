@@ -1,5 +1,5 @@
 <template>
-  <section :class="color" class="hero">
+  <section :class="color" class="section hero">
       <h1 class="title">
           {{ fiche.Titel }}
       </h1>

@@ -147,7 +147,31 @@ const createStore = () => {
             },
             getSortedFiches (state) {
                 return state.sortedFiches 
-            } 
+            },
+            getTreeView (state) {
+                let tree = {}
+                tree['name'] = ''
+                tree['children'] = []
+                state.kernthemas.map((thema) => {
+                    let currentObj = {}
+                    currentObj['name'] = thema.Slug
+                    currentObj['children'] = []
+                    thema.Subcat.map((subcat) => {
+                        let sub = {}
+                        let fiches = state.infofiches.filter((fiche) => {
+                            return fiche.Subcategorie[0].display.trim() === subcat.display.trim()
+                        }).map((result) => {
+                            return { 'name': result.Slug }
+                        })
+                        sub['name'] = subcat.display
+                        sub['children'] = fiches
+                        currentObj['children'].push(sub)
+                    })
+                    tree['children'].push(currentObj)
+                })
+                tree['name'] = 'toolbox'
+                return tree
+            }
         }
     })
 }

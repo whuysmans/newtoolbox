@@ -1,12 +1,7 @@
 <template>
   <div> 
-      <div class="themaContent" v-if="isActiveThema">
+      <div class="themaContent" :class="thema.Slug" v-if="isActiveThema">
           <div v-html="thema.Content"></div>
-          <!-- <a v-if="thema.ExtraContent" @click.prevent.stop="showExtra = true">Lees meer...</a>
-          <div v-if="showExtra" class="notification">
-              <button class="delete" @click.prevent.stop="showExtra = false"></button>
-              <div v-html="thema.ExtraContent"></div>
-          </div> -->
           <div class="notification">
               <div v-html="thema.ExtraContent"></div>
           </div>
@@ -64,7 +59,8 @@ export default {
   },
   computed: {
       isActiveThema () {
-          return this.getActiveThema().trim() === this.thema.Titel
+          return this.getActiveThema().trim() === this.thema.Titel || 
+                    this.getActiveThema().trim() === this.thema.Slug
       },
       backgroundColor (title) {
           return this.getClassSlug(title)

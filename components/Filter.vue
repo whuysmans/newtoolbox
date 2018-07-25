@@ -2,27 +2,29 @@
   <div class="container">
       <div class="tabs is-boxed is-medium is-centered">
           <ul>
+            <nuxt-link to="/overzicht"><li> 
+                <span class="icon is-small">
+                    <i class="fas fa-tree"></i>
+                </span>
+                <span>Sitemap</span>
+            </li></nuxt-link>
             <li v-for="thema in themas" 
                 :key="thema._id" 
-                :class="[getActiveThema() === thema.Titel ? 'is-active' : '']"
+                :class="[(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
                 @click="handleThemaClick">
                 <a>
                     <span class="icon is-small">
                         <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
                     </span>
                     <span>{{ thema.Titel }}</span>
-                    <span 
-                        v-if="getActiveThema() === thema.Titel" 
-                        class="icon icon-is-small" 
-                        @click="handleThemaClick">
-                        <i class="fas fa-times"></i>
-                    </span>
+                    
                 </a>
             </li>
+            
         </ul>
       </div>
-      <thema v-for="thema in themas" :key="thema._id" :class="thema.Slug" :thema="thema"></thema>
-      <fiches-list :fiches="filteredFiches"></fiches-list>
+      <thema v-for="thema in themas" :key="thema._id" :class="thema.Slug" class="kernthema-content" :thema="thema"></thema>
+      <fiches-list v-if="themaIsActive" :fiches="filteredFiches"></fiches-list>
   </div>
 </template>
 <script>
