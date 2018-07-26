@@ -154,7 +154,8 @@ const createStore = () => {
                 tree['children'] = []
                 state.kernthemas.map((thema) => {
                     let currentObj = {}
-                    currentObj['name'] = thema.Slug
+                    currentObj['name'] = thema.Titel
+                    currentObj['slug'] = thema.Slug
                     currentObj['children'] = []
                     thema.Subcat.map((subcat) => {
                         let sub = {}

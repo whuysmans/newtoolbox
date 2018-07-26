@@ -7,13 +7,15 @@
 
 <script>
 import * as d3 from 'd3'
+import { mapGetters } from 'vuex'
 export default {
     props: ['data'],
     watch: {
      'data': 'dataUpdated'   
     },
     mounted () {
-        
+        let activeSubcat = this.getActiveSubcat() 
+        let activeThema = this.getActiveThema()
         let svg = d3.select("svg")
         let width = +svg.attr("width")
         let height = +svg.attr("height")
@@ -47,12 +49,12 @@ export default {
                     let classString = "node " + (d.children ? " node--internal" : "node--leaf")
                     switch (d.depth) {
                         case 1:
-                        classString += " " + d.data.name
+                        classString += " " + d.data.slug
                         break
                         case 2:
-                        classString += " " + d.parent.data.name
+                        classString += " " + d.parent.data.slug
                         case 3:
-                        classString += " " + d.parent.parent.data.name
+                        classString += " " + d.parent.parent.data.slug
                     }
                     return classString
                 })
@@ -101,13 +103,12 @@ export default {
         function walk (startNode, mode) {
             let stack = []
             stack.push(startNode)
-            let counter = 0
+            console.log(startNode)
             while (stack.length !== 0) {
                 let element = stack.pop()
                 let elementLinks = element.links()
                 if (elementLinks !== undefined && elementLinks.length > 0) {
                     elementLinks.forEach( (link) => {
-                       console.log(link) 
                        g.select("#link-" + link.source.id + "-" + link.target.id)
                         .classed("sub-tree", mode)
                     });
@@ -127,20 +128,28 @@ export default {
         }
 
         function handleMouseOver (d, i) {
-            let children = d.descendants()
             walk(d, true)
         }
 
         function handleMouseOut (d, i) {
-            d3.select(this).attr("r", 5)
             walk(d, false)
         }
 
+        function getActiveNode () {
+            let result = node.filter((d) => {
+                return d.data.name === activeSubcat 
+            })
+            console.log(result.data()[0])
+            walk(result.data()[0], true)
+        }
+
         this.addListeners()
+        getActiveNode ()
     },
     beforeDestroy() {
         this.removeListeners()
     },
+
     methods: {
         addListeners () {
             this._links = this.$el.getElementsByTagName('a')
@@ -159,15 +168,20 @@ export default {
                 this.addListeners()
             })
         },
+        ...mapGetters([
+         'getActiveSubcat',
+         'getActiveThema'
+       ]),
         navigate (event) {
             const href = event.target.getAttribute('href')
-            console.log(href)
             if (href) {
                 event.preventDefault()
                 this.$router.push(href)
             }
         }
-
+    },
+    computed: {
+        
     }
     
 }

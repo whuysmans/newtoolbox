@@ -2,60 +2,31 @@
   <div> 
       <div class="themaContent" :class="thema.Slug" v-if="isActiveThema">
           <div v-html="thema.Content"></div>
-          <div class="notification">
-              <div v-html="thema.ExtraContent"></div>
-          </div>
-          <div class="buttons" id="subcat-buttons">
-              <a v-for="subcat in thema.Subcat" 
-                 :key="subcat._id" 
-                 class="button"
-                 :class="{'is-active': isActiveSubcat(subcat.display)}"
-                 @click="handleSubcatClick"
-                 >
-                 {{ subcat.display }}
-              </a>
-              <a v-if="!noneActive"
-                class="button is-outlined is-link"
-                @click="clearFilter"
-              >
-                <span>clear filter</span>
-                <span class="icon is-small">
-                    <i class="fas fa-times"></i>
-                </span>
-              </a>
+          <div class="notification" id="subcat-buttons">
+              <subcat v-for="subcat in thema.Subcat" :subcat="subcat" :fiches="fiches" :key="subcat._id"></subcat>
           </div>
       </div>
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
+import Subcat from './Subcat'
 export default {
-  props: ['thema'],
+  components: {
+      'subcat': Subcat
+  },
+  props: ['thema', 'fiches'],
   data () {
       return {
           showExtra: false
       }
   },
   methods: {
-      ...mapActions([
-        'setActiveSubcat',
-        'setActiveThema'
-      ]),
       ...mapGetters([
         'getActiveThema',
         'getClassSlug',
         'getActiveSubcat'
-      ]),
-      handleSubcatClick (event) {
-          let subcat = event.target.outerText
-          this.setActiveSubcat(subcat)
-      },
-      isActiveSubcat (display) {
-          return this.getActiveSubcat().trim() === display
-      },
-      clearFilter () {
-          this.setActiveSubcat('')
-      }
+      ])
   },
   computed: {
       isActiveThema () {
@@ -71,5 +42,14 @@ export default {
   }
 }
 </script>
+<style scoped>
+    #subcat-buttons a {
+        text-decoration: none;
+    }
+    #subcat-buttons a.is-active {
+        color: #0000FF;
+    }
+</style>
+
 
 

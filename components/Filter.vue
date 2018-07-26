@@ -23,8 +23,13 @@
             
         </ul>
       </div>
-      <thema v-for="thema in themas" :key="thema._id" :class="thema.Slug" class="kernthema-content" :thema="thema"></thema>
-      <fiches-list v-if="themaIsActive" :fiches="filteredFiches"></fiches-list>
+      <thema v-for="thema in themas" 
+            :key="thema._id" 
+            :class="thema.Slug" 
+            class="kernthema-content" 
+            :thema="thema"
+            :fiches="fiches">
+      </thema>
   </div>
 </template>
 <script>
@@ -63,20 +68,14 @@ export default {
      }
  },
  computed: {
-     filteredFiches () {
-         let ficheArray = this.fiches
-         return ficheArray.filter((fiche) => {
-             return this.getActiveSubcat() !== '' ? (fiche.Subcategorie.filter((cat) => {
-                 return cat.display.trim() === this.getActiveSubcat().trim()
-             })[0]) : (this.getActiveThema() !== '' ? fiche.Kernthemas.display.trim() === this.getActiveThema().trim()
-             : true)
-         })
-     },
      showFilter () {
          return this.filteredFiches.length !== 0
      },
      themaIsActive () {
          return this.getActiveThema() !== ''
+     },
+     subcatIsActive () {
+         return this.getActiveSubcat() !== ''
      }
  }
 }
