@@ -12,12 +12,12 @@
 <script>
 import FicheContent from '../components/FicheContent'
 import Pagination from '../components/Pagination'
-import PageHader from '../components/PageHeader'
+import PageHeader from '../components/PageHeader'
 export default {
   components: {
       'fiche-content': FicheContent,
       'pagination': Pagination,
-      'page-header': PageHader
+      'page-header': PageHeader
   },
   async asyncData (context) {
       console.log(context.route)

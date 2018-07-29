@@ -12,8 +12,8 @@ export default {
     },
     async asyncData (context) {
       let data = await context.store.getters.getTreeView
-      context.store.dispatch('setActiveThema', '')
-      context.store.dispatch('setActiveSubcat', '')
+      //context.store.dispatch('setActiveThema', '')
+      //context.store.dispatch('setActiveSubcat', '')
       return { data: data }
     }
 }

@@ -109,11 +109,10 @@ export default {
                 let elementLinks = element.links()
                 if (elementLinks !== undefined && elementLinks.length > 0) {
                     elementLinks.forEach( (link) => {
-                       g.select("#link-" + link.source.id + "-" + link.target.id)
-                        .classed("sub-tree", mode)
+                        visitLink(link, mode)
                     });
                 }
-                visit (element, mode)
+                visitNode (element, mode)
                 if (element.children !== undefined) {
                     for (let i = 0; i < element.children.length; i++) {
                         stack.push(element.children[element.children.length - i - 1])
@@ -122,8 +121,28 @@ export default {
             }
         }
 
-        function visit (element, mode) {
+        function mark (startNode) {
+            let themaNode = startNode.parent
+            let themaLink = themaNode.links().filter((link) => {
+                return link.target.id === startNode.id 
+            })[0]
+            let rootLink = root.links().filter((link) => {
+                return link.target.id === themaNode.id
+            })[0]
+            visitNode(themaNode, true)
+            visitLink(themaLink, true)
+            visitLink(rootLink, true)
+            visitNode(root, true)
+            walk(startNode, true)
+        }
+
+        function visitNode (element, mode) {
             g.select("#node-" + element.id)
+                .classed("sub-tree", mode)
+        }
+
+        function visitLink (link, mode) {
+            g.select("#link-" + link.source.id + "-" + link.target.id)
                 .classed("sub-tree", mode)
         }
 
@@ -140,11 +159,14 @@ export default {
                 return d.data.name === activeSubcat 
             })
             console.log(result.data()[0])
-            walk(result.data()[0], true)
+            mark(result.data()[0])
         }
 
         this.addListeners()
-        getActiveNode ()
+        if (this.getActiveSubcat() !== '') {
+             getActiveNode ()
+        }
+       
     },
     beforeDestroy() {
         this.removeListeners()
