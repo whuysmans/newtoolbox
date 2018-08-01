@@ -115,3 +115,76 @@
 }
 
 
+svg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.node circle {
+    fill: #999;
+}
+
+.node text {
+    font: 13px sans-serif;
+}
+
+/* .node--internal circle {
+    fill: #555;
+} */
+
+.node--internal text {
+    text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+}
+
+.node.leren-zichtbaar-maken text {
+    background: pink;
+    /* font-size: 200%; */
+    color: blue;
+}
+
+.link {
+    fill: none;
+    stroke: #555;
+    stroke-opacity: 0.4;
+    stroke-width: 1.5px;
+} 
+
+.node.leren-bijsturen circle {
+    fill: #e9d4d6;
+}
+
+.node.leren-zichtbaar-maken circle{
+    fill: #54cee7;
+}   
+
+.node.leren-in-een-veilig-en-stimulerend-leerklimaat circle{
+    fill: #c6e0dd;
+}
+.tekst-leren-bijsturen {
+    color: #e9d4d6;
+}
+
+.tekst-leren-zichtbaar-maken {
+    color: #54cee7;
+}   
+
+.tekst-leren-in-een-veilig-en-stimulerend-leerklimaat {
+    color: #c6e0dd;
+}
+
+.leren-bijsturen .button {
+    border-color: #e9d4d6;
+}
+
+.leren-zichtbaar-maken .button {
+    border-color: #54cee7;
+}
+
+.leren-in-een-veilig-en-stimulerend-leerklimaat .button {
+    border-color: #c6e0dd;
+}
+
+.sub-tree {
+    stroke: red;
+}

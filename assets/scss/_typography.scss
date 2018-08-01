@@ -1,0 +1,87 @@
+// no crap
+// start blank for all things typography
+
+
+// FONTS
+
+// Playfair: only bold, only for h1, h2, .h-2-a & .h-2-a-black
+$PlayfairDisplay : 'Playfair Display', serif;
+
+// SourceSansPro: for body copy, so we need a lot of variants..
+$SourceSansPro : 'Source Sans Pro', sans-serif;
+
+// STYLES
+
+body {
+  // font-size: 112.5%; // 18px;
+  font-size: 100%; //16px;
+
+  font-family: 'Open Sans', sans-serif;
+  font-weight: $normal-weight;
+  color: $body-font-color;
+
+  line-height: 1.67;
+}
+
+
+
+// .site-header,
+// .site-footer {
+//     font-size: 0.888889rem;  
+// }
+
+h1, h2,
+.h1, .h2 {
+  margin-bottom: $paragraph-margin-bottom;
+}
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6 {
+  margin-bottom: $paragraph-margin-bottom/6;
+}
+
+
+
+
+
+
+
+strong,
+b {
+  font-weight: $medium-weight;
+}
+
+
+
+
+
+
+
+
+
+// misc
+.close-button,
+.owl-prev,
+.owl-next {
+
+}
+.menu-toggle {
+
+}
+
+.text-center {
+  text-align: center;
+  .text-left {
+    text-align: left;
+  }
+  @include breakpoint-max($medium) {
+    text-align: left;
+  }
+}
+
+// svg.svgicon {
+//   // font-size: 0.888888889rem; //16px;
+//   // line-height: 1.67;
+//   font-size: .75rem;
+// }
+
+
