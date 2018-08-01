@@ -1,6 +1,5 @@
 <template>
   <div class="section">
-    <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
     <transition name="fade">
       <section class="section intro-copy columns" v-if="!filterIsActive">
         <div class="container column is-three-fifths">

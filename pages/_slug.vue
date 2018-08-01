@@ -1,6 +1,5 @@
 <template>
 <div class="section">
-    <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
     <transition name="page">
       <section class="container">
         <div class="main fiche-main">
@@ -24,6 +23,9 @@ export default {
       'pagination': Pagination,
       'page-header': PageHeader,
       'toolbox-filter': Filter
+  },
+  created () {
+      console.log(this.$route)
   },
   async asyncData (context) {
       let fiche = await context.store.getters.getInfoFiche(context.route.params.slug)[0]

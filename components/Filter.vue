@@ -68,9 +68,6 @@ export default {
      }
  },
  computed: {
-     showFilter () {
-         return this.filteredFiches.length !== 0
-     },
      themaIsActive () {
          return this.getActiveThema() !== ''
      },

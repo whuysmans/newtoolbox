@@ -42,14 +42,7 @@ export default {
   }
 }
 </script>
-<style scoped>
-    #subcat-buttons a {
-        text-decoration: none;
-    }
-    #subcat-buttons a.is-active {
-        color: #0000FF;
-    }
-</style>
+
 
 
 
