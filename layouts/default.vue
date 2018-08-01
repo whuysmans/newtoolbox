@@ -3,7 +3,7 @@
     <navbar/>
     <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
     
-      <nuxt/>
+    <nuxt/>
     
   </div>
 </template>

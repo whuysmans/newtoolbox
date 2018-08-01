@@ -4,11 +4,6 @@
 
 // FONTS
 
-// Playfair: only bold, only for h1, h2, .h-2-a & .h-2-a-black
-$PlayfairDisplay : 'Playfair Display', serif;
-
-// SourceSansPro: for body copy, so we need a lot of variants..
-$SourceSansPro : 'Source Sans Pro', sans-serif;
 
 // STYLES
 
@@ -30,6 +25,20 @@ body {
 //     font-size: 0.888889rem;  
 // }
 
+
+h1, h2,
+.h1, .h2,
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6,
+.title,
+.subtitle {
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
+
+  color: $primary;
+  line-height: 1.2;
+}
+
 h1, h2,
 .h1, .h2 {
   margin-bottom: $paragraph-margin-bottom;
@@ -39,10 +48,18 @@ h3, h4, h5, h6,
   margin-bottom: $paragraph-margin-bottom/6;
 }
 
-
-
-
-
+h1, .h1 {
+  font-size: 2rem;
+}
+h2, .h2 {
+  font-size: 1.625rem;
+}
+h3, .h3 {
+  font-size: 1.375rem;
+}
+h4, h5, h6, .h4, .h5, .h6 {
+  font-size: 1rem;
+}
 
 
 strong,
@@ -51,6 +68,20 @@ b {
 }
 
 
+.text-content {
+  p, ul, ol {
+    margin-bottom: $paragraph-margin-bottom;
+  }
+
+  h2, h3, h4, h5, h6,
+  .h2, .h4, .h5, .h6 {
+    margin-top: $paragraph-margin-bottom*2;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+}
 
 
 

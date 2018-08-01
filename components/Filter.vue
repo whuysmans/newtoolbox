@@ -1,13 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container is-fluid">
       <div class="tabs is-boxed is-medium is-centered">
           <ul>
-            <nuxt-link to="/overzicht"><li> 
-                <span class="icon is-small">
-                    <i class="fas fa-tree"></i>
-                </span>
-                <span>Sitemap</span>
-            </li></nuxt-link>
             <li v-for="thema in themas" 
                 :key="thema._id" 
                 :class="[(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
@@ -17,11 +11,18 @@
                         <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
                     </span>
                     <span>{{ thema.Titel }}</span>
-                    
                 </a>
             </li>
             
-        </ul>
+            <li>
+              <nuxt-link to="/overzicht">
+                <span class="icon is-small">
+                    <i class="fas fa-tree"></i>
+                </span>
+                <span>Sitemap</span>
+              </nuxt-link>
+            </li>
+          </ul>
       </div>
       <thema v-for="thema in themas" 
             :key="thema._id" 
