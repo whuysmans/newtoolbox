@@ -1,0 +1,71 @@
+
+
+// TOOLBOX CONSTANTS
+
+
+$azure: #54cee7; // leren zichtbaar maken
+$pink: #e9d4d6; // leren bijsturen
+$aquamarine: #c6e0dd; // leren in een veilig en stimulerend leerklimaat
+
+
+$light-gray: #f9f9f9; // gray header bg
+$medium-gray: #cacaca;
+$dark-gray: #333333;
+$black: #0a0a0a;
+$white: #ffffff;
+
+
+$normal-weight: 400;
+$medium-weight: 600;
+$bold-weight: 700;
+
+$body-font-color: $dark-gray;
+
+
+$small : 460px;
+$medium : 780px;
+$large : 1000px;
+$larger : 1120px;
+$xlarge : 1440px;
+
+
+$global-margin: 30px;
+$global-padding: 20px;
+$paragraph-margin-bottom: $global-margin; //30px;
+
+$global-radius: 2px;
+
+
+// CIPT global mixins
+@import 'scss/mixins';
+
+
+// Project Globals
+@import "scss/typography";
+@import "scss/grid";
+@import "scss/elements";
+
+@import "scss/app";
+@import "scss/sitemap";
+
+
+// Modules
+// @import "parts/navigation";
+// @import "parts/footer";
+// @import "parts/newsletter";
+// @import "parts/gallery-and-modals";
+// @import "parts/sidebar";
+// @import "parts/cookienotice";
+
+
+// Components
+// @import "elements";
+// @import "parts/articles";
+// @import "parts/events";
+
+
+// Finishing touch: import your print styles
+// @import "print";
+
+
+

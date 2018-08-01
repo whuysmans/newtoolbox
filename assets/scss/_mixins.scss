@@ -1,0 +1,442 @@
+/******************************************************************
+
+Stylesheet: Mixins & Constants Stylesheet
+
+This is where you can take advantage of Sass' great features:
+Mixins & Constants.
+
+******************************************************************/
+
+/*********************
+TOOLS
+*********************/
+
+@mixin breakpoint($point) {
+  @media (min-width: $point) {
+    @content ;
+  }
+}
+@mixin breakpoint-max($point) {
+  @media (max-width: $point - 1px) {
+    @content ;
+  }
+}
+@mixin breakpoint-between($pointmin, $pointmax) {
+  @media (min-width: $pointmin) and (max-width: $pointmax - 1px) {
+    @content ;
+  }
+}
+@mixin show-for($point) {
+  @media (max-width: $point - 1px) {
+    display: none; 
+  }
+}
+@mixin hide-for($point) {
+  @media (min-width: $point) {
+    display: none; 
+  }
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+.hide {
+  display: none;
+}
+.show-for-small {
+  @include show-for($small);
+}
+.show-for-medium {
+  @include show-for($medium);
+}
+.show-for-large {
+  @include show-for($large);
+}
+.show-for-xlarge {
+  @include show-for($xlarge);
+}
+.hide-for-small {
+  @include hide-for($small);
+}
+.hide-for-medium {
+  @include hide-for($medium);
+}
+.hide-for-large {
+  @include hide-for($large);
+}
+.hide-for-xlarge {
+  @include hide-for($xlarge);
+}
+
+
+
+@mixin clearfix() {
+  &:before,
+  &:after{
+    content: " "; 
+    display: table; 
+  }
+
+  &:after{
+    display: block;
+    clear: both;
+    height: 1px;
+    margin-top: -1px;
+    visibility: hidden;
+  }
+  &{
+    *zoom: 1;
+  }
+}
+
+
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+@mixin image-replacement() {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.image-replacement {
+  @include image-replacement();
+}
+
+
+@mixin screen-reader-text() {
+  position: absolute;
+  top: auto;
+  left: -999em;
+  right: auto;
+  height: 0;
+  overflow: hidden;
+}
+
+
+@mixin underline() {
+  // no control of 'padding':
+  // border-bottom-width: 1px;
+  // border-bottom-style: solid;
+
+  position: relative;
+  &:after {
+      content: '';
+
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 1px;
+
+      border-width: 0 0 1px;
+      border-style: solid;
+  }
+}
+
+@mixin no-underline() {
+  &:after {
+    border-width: 0;
+  }
+}
+
+@mixin underline-link() {
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid;
+}
+
+
+
+
+@mixin button() {
+  // text-align: center;
+
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  border-radius: 0;
+  // padding: $global-padding/2 $global-padding $global-padding*0.35;
+  padding: 1rem 2rem;
+  
+  text-decoration: none;
+  background-color: $cerulean;
+  // color: $white;
+  border-radius: $global-radius;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    // color: $white;
+    background-color: darken($cerulean, 10%);
+  }
+}
+
+
+
+/*********************
+DISPLAY TABLE
+*********************/
+
+@mixin as-table($valign: top) {
+  display: table;
+  vertical-align: $valign;
+}
+
+@mixin as-table-row($valign: top) {
+  display: table-row;
+  vertical-align: $valign;
+}
+
+@mixin as-table-cell($valign: top) {
+  display: table-cell;
+  vertical-align: $valign;
+}
+
+.table {
+  @include as-table(top);
+}
+.table-row {
+  @include as-table-row(top);
+}
+.table-cell {
+  @include as-table-cell(top);
+}
+
+
+
+/*********************
+TRANSITION
+*********************/
+
+@mixin cipt-transition($property:all, $duration:200ms, $easing: ease-out, $delay: 0s) {
+  // -webkit-transition: $property $duration $easing $delay;
+  // -moz-transition: $property $duration $easing $delay;
+  // -o-transition: $property $duration $easing $delay;
+  transition: $property $duration $easing $delay;
+}
+
+
+
+/*********************
+BOXING
+*********************/
+
+@mixin boxed($bgcolor: scale-color($primary-color, $lightness: 97%)) {
+  // padding: 0.9375rem;
+  padding: 2rem;
+  border-radius: $global-radius;
+  background-color: $bgcolor;
+}
+
+
+
+
+/*********************
+COLORS
+*********************/
+
+
+
+
+/*********************
+ALIGNING
+*********************/
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+@mixin horizontal-align {
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+@mixin horizontal-vertical-align {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+
+// for overflowing images etc
+@mixin flyout() {
+  margin-left: $global-margin*-2;
+  margin-right: $global-margin*-2;
+}
+@mixin flyout-left() {
+  margin-left: $global-margin*-2;
+  // display: block;
+  // margin-left: calc( -28.5714359% - 1rem); // 2col = 16,66667% (tov 58,33333% v 7col)
+  // margin-right: calc( -42.8571453% - 5rem);
+  // width: calc(100% + 28.5714359% + 42.8571453% + 6rem);
+  // max-width: inherit;
+
+  // #tinymce & {
+  //   width: 100%;
+  // }
+
+  // #tinymce & {
+  //   margin-left: 0;
+  //   margin-right: 0;
+  //   background: $light-gray;
+  // }
+}
+@mixin flyout-right() {
+  margin-right: $global-margin*-2;
+}
+
+// @mixin flyout-left {
+//   display: block;
+//   margin-left: calc( -32.5714359%); // 2col = 16,66667% (tov 58,33333% v 7col)
+//   // margin-right: calc( -42.8571453% - 5rem);
+//   width: calc(64.28571795% - 1rem); // = (100% + 28.5714359%)/2 - 1rem;
+//   margin-right: 2rem;
+//   max-width: inherit;
+
+//   #tinymce & {
+//     width: 50%;
+//   }
+
+//   #tinymce & {
+//     margin-left: 0;
+//   }
+// }
+
+
+// use on a positioned element
+@mixin faded-img() {
+  position: relative;
+  line-height: 0;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: rgba( 216, 216, 216, .3);
+  }
+  img {
+    width: 100%;
+  }
+}
+.faded-img {
+  @include faded-img();
+}
+
+
+/*********************
+LISTS
+*********************/
+
+@mixin unstyled-list {
+  margin-left: 0;
+  padding-left: 0;
+  list-style: none;
+  li {
+    margin-left: 0;
+    padding-left: 0;
+    &:before {
+      display: none;
+    }
+  }
+}
+
+.unstyled-list {
+  @include unstyled-list();
+}
+
+@mixin inline-list {
+  @include unstyled-list();
+  li {
+    display: inline-block;
+  }
+}
+
+.inline-list {
+  @include inline-list();
+}
+
+.button-list li,
+li.button-list-li {
+  display: inline-block;
+  // margin: 0 $global-padding/4 $global-padding/4 0;
+  margin: 0 0.5rem 0.5rem 0;
+  a {
+    // @include button();
+    display: inline-block;
+
+    // @include cipt-transition();
+
+  }
+}
+
+
+
+/*********************
+MISC
+*********************/
+
+
+
+
+
+/*********************
+TYPOGRAPHY
+*********************/
+/*	@font-face {
+    	font-family: 'Font Name';
+    	src: url('assets/fonts/font-name.eot');
+    	src: url('assets/fonts/font-name.eot?#iefix') format('embedded-opentype'),
+             url('assets/fonts/font-name.woff') format('woff'),
+             url('assets/fonts/font-name.ttf') format('truetype'),
+             url('assets/fonts/font-name.svg#font-name') format('svg');
+    	font-weight: normal;
+    	font-style: normal;
+	}
+*/
+
+//Use the best ampersand - http://simplebits.com/notebook/2008/08/14/ampersands-2/
+span.amp {
+  font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
+  font-style: italic;
+}
+
+@mixin faded-copy() {
+  color: $medium-gray;
+}
+.faded-copy {
+  @include faded-copy();
+}
+
+@mixin small-copy() {
+  font-size: 80%; // 16px
+  line-height: 1.2;
+}
+.small-copy, small {
+  @include small-copy();
+}
+
+
+/*********************
+CSS3 GRADIENTS.
+*********************/
+
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+// @mixin css-gradient($from: #dfdfdf, $to: #f8f8f8) {
+// 	background-color: $to;
+// 	background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to));
+// 	background-image: -webkit-linear-gradient(top, $from, $to);
+// 	background-image: -moz-linear-gradient(top, $from, $to);
+// 	background-image: -o-linear-gradient(top, $from, $to);
+// 	background-image: linear-gradient(to bottom, $from, $to);
+// }
+
+
