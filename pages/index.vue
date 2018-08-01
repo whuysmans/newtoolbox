@@ -1,29 +1,20 @@
 <template>
-  <transition name="page">
-    <div id="main">
-    <section class="section hero">
-      <div class="container">
-        <h1 class="title">
-          {{ homeInfo.Titel }}
-        </h1>
-        <h2 class="subtitle">
-          {{ homeInfo.Subtitle }}
-        </h2>
-      </div>
-    </section>
+  <div class="section">
+    <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
     <transition name="fade">
-      <section class="section intro-copy" v-if="!filterIsActive">
-        <div class="container">
+      <section class="section intro-copy columns" v-if="!filterIsActive">
+        <div class="container column is-three-fifths">
               <div v-html="homeInfo.Beschrijving"></div>
               <article class="message is-link">
                 <div v-html="homeInfo.Extra"></div> 
               </article>
         </div>
+        <div class="column">
+          <img :src="homeInfo.Afbeelding" /> 
+        </div>
       </section>
     </transition>
-    <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
   </div>
-  </transition>
 </template>
 
 <script>
@@ -41,7 +32,6 @@ export default {
      ])
   },
   created () {
-    console.log(this.$route)
     if (this.$route.query) {
       if (this.$route.query.thema) {
         this.$store.dispatch('setActiveThema', this.$route.query.thema)

@@ -103,7 +103,6 @@ export default {
         function walk (startNode, mode) {
             let stack = []
             stack.push(startNode)
-            console.log(startNode)
             while (stack.length !== 0) {
                 let element = stack.pop()
                 let elementLinks = element.links()
@@ -158,7 +157,6 @@ export default {
             let result = node.filter((d) => {
                 return d.data.name === activeSubcat 
             })
-            console.log(result.data()[0])
             mark(result.data()[0])
         }
 

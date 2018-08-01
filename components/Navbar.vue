@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar">
       <div class="navbar-brand">
+          <nuxt-link to="/" class="navbar-item"><strong>Toolbox Formatieve Evaluatie</strong></nuxt-link>
           <button class="navbar-burger">
               <span></span>
               <span></span>
