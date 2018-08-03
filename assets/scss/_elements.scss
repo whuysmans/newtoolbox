@@ -1,11 +1,12 @@
 a {
   @include cipt-transition();
   
-  color: blue;
+  color: $link;
 
   &:hover,
   &:focus {
-    color: darken(blue, 10%);
+    color: darken($link, 10%);
+    // text-decoration: underline;
   }
 
   h1, h2, h3 {
@@ -18,7 +19,14 @@ a, a:hover, a:visited, a:active {
 }
 
 
-
+.text-content {
+  a {
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+}
 
 
 

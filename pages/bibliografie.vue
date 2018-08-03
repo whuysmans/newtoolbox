@@ -1,8 +1,8 @@
 <template>
   <section class="container content">
       <div>
-          <h2>{{ biblio.Titel }}</h2>
-          <div v-html="biblio.Content"></div>
+          <h1>{{ biblio.Titel }}</h1>
+          <div class="text-content" v-html="biblio.Content"></div>
       </div>
   </section>
 </template>

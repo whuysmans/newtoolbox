@@ -11,12 +11,12 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700' }
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Merriweather|Open+Sans:400,400i,600,700' }
     ]
   },
 
   css: [
-    { src: 'bulma/bulma.sass', lang: 'sass'},
+    // { src: 'bulma/bulma.sass', lang: 'sass'},
     { src: '@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss', lang: 'scss'},
     { src: '@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss', lang: 'scss'},
     { src: '@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss', lang: 'scss'},

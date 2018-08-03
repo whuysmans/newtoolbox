@@ -1,5 +1,7 @@
 <template>
-<div class="section">
+<div class="modal" :class="{'is-active': isActive}">
+  <div class="modal-background"></div>
+  <div class="modal-content">
     <transition name="page">
       <section class="container">
         <div class="main fiche-main">
@@ -9,6 +11,8 @@
         <pagination :slug="fiche.Slug"></pagination>
       </section>
   </transition>
+  </div>
+  <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
 </div>
   
 </template>
@@ -23,6 +27,11 @@ export default {
       'pagination': Pagination,
       'page-header': PageHeader,
       'toolbox-filter': Filter
+  },
+  data () {
+    return {
+      isActive: true
+    }
   },
   created () {
       console.log(this.$route)

@@ -205,7 +205,7 @@ DISPLAY TABLE
 TRANSITION
 *********************/
 
-@mixin cipt-transition($property:all, $duration:200ms, $easing: ease-out, $delay: 0s) {
+@mixin cipt-transition($property:all, $duration:400ms, $easing: ease-out, $delay: 0s) {
   // -webkit-transition: $property $duration $easing $delay;
   // -moz-transition: $property $duration $easing $delay;
   // -o-transition: $property $duration $easing $delay;
