@@ -5,7 +5,11 @@
           <div class="navbar-item has-dropdown" 
                 :class="{'is-active': getSearchIsActive()}" 
                 >               
-              <input type="text" class="input is-small navbar-item" v-model="search" ref="input"/>
+              <input type="text" 
+                class="input is-small navbar-item" 
+                v-model="search" 
+                ref="input"
+                placeholder="Zoek..." />
               <search-element :results="getResults()" />
           </div>
           <button class="navbar-burger">
