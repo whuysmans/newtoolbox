@@ -17,7 +17,9 @@ const createStore = () => {
             token: null,
             classSlug: {},
             activeThema: '',
-            sortedFiches: []
+            sortedFiches: [],
+            searchIsActive: false,
+            searchWord: ''
         },
         mutations: {
             LOAD_INFO_FICHES (state, fiches) {
@@ -64,7 +66,13 @@ const createStore = () => {
                     })
                 }).reduce((a, b) => a.concat(b), []).reduce((a, b) => a.concat(b), [])
                 state.sortedFiches = sortedData
-            }
+            },
+            SET_SEARCH_IS_ACTIVE (state, bool) {
+                state.searchIsActive = bool
+            },
+            SET_CURRENT_SEARCH_WORD (state, str) {
+                state.searchWord = str
+            } 
         },
         actions: {
             async nuxtServerInit ({commit}, state) {
@@ -92,6 +100,12 @@ const createStore = () => {
             },
             setActiveThema ({commit}, thema) {
                 commit('SET_ACTIVE_THEMA', thema)
+            },
+            setSearchIsActive (context, bool) {
+                context.commit('SET_SEARCH_IS_ACTIVE', bool)
+            },
+            setCurrentSearchWord (context, str) {
+                context.commit('SET_CURRENT_SEARCH_WORD', str)
             }
         },
         getters: {
@@ -172,6 +186,27 @@ const createStore = () => {
                 })
                 tree['name'] = 'toolbox'
                 return tree
+            },
+            getSearchData (state) {
+                let json = {}
+                state.infofiches.map((fiche) => {
+                    json[fiche.Titel] = {
+                        'beschrijving': fiche.Beschrijving,
+                        'werking': fiche.Werking,
+                        'tips': fiche.Tips,
+                        'voorbeelden': fiche.Voorbeelden,
+                        'slug': fiche.Slug,
+                        'kernthema': fiche.Kernthemas.display,
+                        'subcategorie': fiche.Subcategorie[0].display
+                    }
+                })
+                return json
+            },
+            getSearchIsActive (state) {
+                return state.searchIsActive
+            },
+            getCurrentSearchWord (state) {
+                return state.searchWord
             }
         }
     })

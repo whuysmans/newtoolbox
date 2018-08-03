@@ -44,7 +44,7 @@ export default {
       fiches () {
         return this.$store.getters.getInfoFiches
       }
-  } 
+  }
 }
 </script>
 
