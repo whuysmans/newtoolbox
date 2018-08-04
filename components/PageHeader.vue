@@ -4,6 +4,9 @@
           {{ fiche.Titel }}
       </h1>
       <breadcrumb :fiche="fiche"></breadcrumb>
+      <span class="icon is-small download-button" @click="download()">
+        <i class="fas fa-download"></i>
+      </span>
   </section>
 </template>
 <script>
@@ -12,7 +15,12 @@ export default {
   components: {
     'breadcrumb': Breadcrumb
   },
-  props: ['fiche', 'color']
+  props: ['fiche', 'color'],
+  methods: {
+    download () {
+      window.print()
+    }
+  }
 }
 </script>
 
