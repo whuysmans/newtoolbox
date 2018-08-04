@@ -9,7 +9,7 @@
                 class="input is-small navbar-item" 
                 v-model="search" 
                 ref="input"
-                placeholder="Zoek..." />
+                placeholder="Zoek in de fiches..." />
               <search-element :results="getResults()" />
           </div>
           <button class="navbar-burger">
@@ -23,7 +23,6 @@
           <div class="navbar-end">
                   <nuxt-link to="/" class="navbar-item is-hoverable">Home</nuxt-link>
                   <nuxt-link to="/bibliografie" class="navbar-item is-hoverable">Bibliografie</nuxt-link>
-                  <nuxt-link to="/" class="navbar-item is-hoverable">Ideeënforum</nuxt-link>
                   <a href="https://kdg.be" class="navbar-item is-hoverable">
                     <img src="https://cipt.be/toolbox/wp-content/uploads/2018/01/KdG_H_Closed-e1515855778724.png" width="112" height="28">
                   </a>

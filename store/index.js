@@ -137,7 +137,7 @@ const createStore = () => {
             getInfoFiche (state) {
                 return (name) => {
                     return state.infofiches.filter((fiche) => {
-                        return fiche.Slug.toLowerCase() === name
+                        return fiche.Slug.toLowerCase() === name.toLowerCase()
                     })
                 }
             },
