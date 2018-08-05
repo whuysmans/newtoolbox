@@ -32,6 +32,20 @@ a, a:hover, a:visited, a:active {
 
 
 
+// MODAL
+.modal-content {
+  position: relative;
+  background-color: $white;
+  border-radius: $global-radius;
+
+  .modal-close {
+    position: absolute;
+  }
+  .modal-close::before, .modal-close::after {
+    background-color: $body-font-color;
+  }
+}
+
 
 
 
