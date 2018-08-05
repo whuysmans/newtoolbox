@@ -2,6 +2,13 @@
   <div class="container is-fluid">
       <div class="tabs is-boxed is-medium">
           <ul>
+            <li>
+                <nuxt-link to="/" @click.native="setActiveThema('')">
+                    <span class="icon is-small">
+                        <i class="fas fa-home"></i>
+                    </span>
+                </nuxt-link>
+            </li>
             <li v-for="thema in themas" 
                 :key="thema._id" 
                 :class="[(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"

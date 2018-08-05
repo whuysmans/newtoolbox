@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg width="800" height="920">
+        <svg width="950" height="920">
 	    </svg>
     </div>
 </template>
@@ -23,7 +23,7 @@ export default {
         let i = 0
 
         let tree = d3.tree()
-            .size([height, width - 250]);
+            .size([height, width - 240]);
 
         let root = d3.hierarchy(this.data)
         root.data.name = 'Toolbox'

@@ -42,6 +42,7 @@ export default {
        ]),
        handleThemaClick (event) {
            this.setActiveThema(event.target.outerText.trim())
+           this.setActiveSubcat('')
            this.$router.push('/')
        },
        handleSubcatClick (event) {

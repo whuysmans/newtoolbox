@@ -31,3 +31,19 @@
   }
 }
 
+// replace images in fiches by smaller ones that grow on hover
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.7); }
+
+// fix for tables in fiches
+.fiche-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid;
+}
+
+// highlight for search results
+.highlight {
+  background-color: #fff2ac;
+  background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
+}

@@ -33,11 +33,9 @@ export default {
       isActive: true
     }
   },
-  created () {
-      console.log(this.$route)
-  },
   async asyncData (context) {
       let fiche = await context.store.getters.getInfoFiche(context.route.params.slug)[0]
+      console.log(context.route.params.slug)
       return { fiche: fiche }
   },
   computed: {
@@ -53,7 +51,38 @@ export default {
       fiches () {
         return this.$store.getters.getInfoFiches
       }
-  } 
+  },
+  methods: {
+        addListeners () {
+            this._links = this.$el.getElementsByTagName('a')
+            for (let i = 0; i < this._links.length; i++) {
+                if (this._links[i].classList.contains('internal')) {
+                    this._links[i].addEventListener('click', this.navigate, false)
+                }
+            }
+        },
+        removeListeners () {
+            for (let i = 0; i < this._links.length; i++) {
+                this._links[i].removeEventListener('click', this.navigate, false)
+            }
+        },
+        navigate (event) {
+            const href = event.target.getAttribute('href')
+            if (href) {
+                event.preventDefault()
+                this.$router.push(href)
+            }
+        }
+  },
+  watch: {
+      '$route.path': function () {
+         this.removeListeners() 
+      }
+  },
+  mounted () {
+      this.addListeners()
+  }
 }
 </script>
+
 
