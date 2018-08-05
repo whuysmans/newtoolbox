@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-wrapper">
     <navbar/>
     <toolbox-filter :themas="themas" :fiches="fiches" id="filter"></toolbox-filter>
     

@@ -1,6 +1,6 @@
 <template>
   <div class="container is-fluid">
-      <div class="tabs is-boxed is-medium is-centered">
+      <div class="tabs is-boxed is-medium">
           <ul>
             <li v-for="thema in themas" 
                 :key="thema._id" 

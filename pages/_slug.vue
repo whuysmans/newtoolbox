@@ -2,7 +2,7 @@
 <div class="modal" :class="{'is-active': isActive}">
   <div class="modal-background"></div>
   <div class="modal-content">
-    <transition name="page">
+    <!-- <transition name="page"> -->
       <section class="container">
         <div class="main fiche-main">
             <page-header :fiche="fiche" :color="backgroundColor"></page-header>
@@ -10,7 +10,7 @@
         </div>
         <pagination :slug="fiche.Slug"></pagination>
       </section>
-  </transition>
+  <!-- </transition> -->
   </div>
   <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
 </div>

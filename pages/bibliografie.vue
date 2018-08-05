@@ -1,10 +1,18 @@
 <template>
-  <section class="container content">
-      <div>
-          <h1>{{ biblio.Titel }}</h1>
+
+  <div class="modal" :class="{'is-active': isActive}">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <!-- <transition name="page"> -->
+        <section class="container content">
+          <h1 class="page-title">{{ biblio.Titel }}</h1>
           <div class="text-content" v-html="biblio.Content"></div>
-      </div>
-  </section>
+        </section>
+    <!-- </transition> -->
+    </div>
+    <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
+  </div>
+
 </template>
 <script>
 export default {
@@ -12,6 +20,14 @@ export default {
       biblio () {
           return this.$store.getters.getBiblio[0]
       }
+  },
+  data () {
+    return {
+      isActive: true
+    }
+  },
+  created () {
+    this.isActive = true
   }
 }
 </script>
