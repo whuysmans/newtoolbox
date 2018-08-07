@@ -1,5 +1,6 @@
 <template>
-  <div v-if="isActiveThema" class="kernthema"> 
+  <!-- <transition name="slidedownfast"> -->
+    <div v-if="isActiveThema" class="kernthema"> 
       <header class="kernthema-header">
           <h1 class="kernthema-title">
               {{ thema.Titel }}
@@ -8,16 +9,17 @@
       <section class="kernthema-content" :class="thema.Slug" >
           <div class="editor-content" v-html="thema.Content"></div>
           <section class="subcategories">
-              <ul class="unstyled-list subcat-list">
+              <div class="columns subcat-list">
                   <subcat v-for="subcat in thema.Subcat" 
                     :subcat="subcat" 
                     :fiches="fiches" 
                     :key="subcat._id">
                   </subcat>
-              </ul>
+              </div>
           </section>
       </section>
-  </div>
+    </div>
+  <!-- </transition> -->
 </template>
 <script>
 import { mapGetters } from 'vuex'

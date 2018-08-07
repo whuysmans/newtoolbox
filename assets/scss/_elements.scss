@@ -31,6 +31,56 @@ a, a:hover, a:visited, a:active {
 
 
 
+// NAVBARS
+#main-nav {
+  > ul:first-child,
+  > ul:last-child {
+    flex: initial;
+  }
+  div.thema-tabs {
+    flex: auto;
+  }
+
+  .tab-home {
+    a span {
+      display: inline-block;
+      height: 1.67em;
+    }
+  }
+}
+
+.navbar-end {
+  font-size: 80%;
+}
+
+.breadcrumb {
+  font-size: 80%;
+  li + li::before {
+    color: lighten($primary, 30);
+  }
+
+  .is-active > span {
+    padding-left: 0.75em;
+  }
+  // li {
+  //   position: relative;
+  //   padding-right: 2rem;
+  //   &:after {
+  //     display: block;
+  //     content: '>';
+  //     position: absolute;
+  //     right: 0;
+  //     width: 1em;
+  //   }
+  //   &:last-child {
+  //     &:after {
+  //       display: none;
+  //     }
+  //   }
+  // }
+}
+
+
 
 // MODAL
 .modal-content {
@@ -47,6 +97,10 @@ a, a:hover, a:visited, a:active {
 }
 
 
+
+
+
+// MISC
 
 
 
@@ -256,6 +310,135 @@ a, a:hover, a:visited, a:active {
 //   stroke: inherit;
 //   fill: inherit;
 // }
+
+
+
+// TRANSITIONS
+
+
+// .slidedown-enter-active {
+//     transition-timing-function: ease-out-quart;
+//     transition-property: transform, opacity;
+//     transition-duration: .4s, .2s;
+// }
+// .slidedown-enter /* .fade-leave-active below version 2.1.8 */ {
+//     transform: translateY(-20%);
+//     opacity: 0;
+// }
+// .slidedown-leave-active {
+//     transition-timing-function: ease-in-quart;
+//     transition-property: transform, opacity;
+//     transition-duration: .4s, .4s;
+// }
+// .slidedown-leave-to /* .fade-leave-active below version 2.1.8 */ {
+//     transform: translateY(-20%);
+//     opacity: 0;
+// }
+
+.kernthemas {
+  max-height: 60em;
+  height: auto;
+  overflow: hidden;
+}
+.slidedown-enter-active {
+    transition-timing-function: ease-out-quart;
+    transition-property: max-height, opacity;
+    transition-duration: .4s, .3s;
+}
+.slidedown-enter /* .fade-leave-active below version 2.1.8 */ {
+    opacity: .4;
+    max-height: 0;
+}
+.slidedown-leave-active {
+    transition-timing-function: ease-in-quart;
+    transition-property: max-height, opacity;
+    transition-duration: .4s, .3s;
+}
+.slidedown-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: .4;
+    max-height: 0;
+}
+
+
+.kernthema {
+  max-height: 60em;
+  height: auto;
+  overflow: hidden;
+
+}
+.slidedownfast-enter-active {
+    transition-timing-function: ease-out-quart;
+    transition-property: max-height, opacity, padding-top, padding-bottom;
+    transition-delay: .2s, .2s, .2s, .2s;
+    transition-duration: .3s, .3s, .3s, .3s;
+}
+.slidedownfast-enter /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    max-height: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.slidedownfast-leave-active {
+    transition-timing-function: ease-in-quart;
+    transition-property: max-height, opacity, padding-top, padding-bottom;
+    transition-duration: .2s, .2s, .2s, .2s;
+}
+.slidedownfast-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    max-height: 2em;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+
+// FLEX SLIDEDOWN
+// bummer: you have to give a fixed height to the main flex wrapper..
+/*.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height:200vh;
+  .page-content {
+    display: flex;
+    flex: initial;
+  }
+  .kernthemas {
+    display: flex;
+    flex: auto;
+    overflow: hidden;
+  }
+}
+.kernthemas.slidedown-enter-active {
+    display: flex !important;
+    transition-timing-function: ease-out-quart;
+    transition-property: flex;
+    transition-duration: .4s;
+}
+.kernthemas.slidedown-enter {
+    // transform: translateY(-20%);
+    display: flex !important;
+    flex: 0;
+}
+.kernthemas.slidedown-leave-active {
+    display: flex !important;
+    transition-timing-function: ease-in-quart;
+    transition-property: flex;
+    transition-duration: .4s;
+}
+.kernthemas.slidedown-leave-to {
+    // transform: translateY(-20%);
+    display: flex !important;
+    flex: 0;
+}*/
+
+
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 
 
 

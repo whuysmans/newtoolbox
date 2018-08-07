@@ -13,7 +13,7 @@
 
 <script>
 import * as d3 from 'd3'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
     props: ['data'],
     watch: {
@@ -95,10 +95,10 @@ export default {
                     case 0:
                     navLink += `${d.data.name}`
                     case 1:
-                    navLink += `<a href="/?thema=${d.data.name}">${d.data.name}</a>`
+                    navLink += `<a href="/?thema=${d.data.name}" data-show-filter="true">${d.data.name}</a>`
                     break
                     case 2:
-                    navLink += `<a href="/?thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}">${d.data.name}</a>`
+                    navLink += `<a href="/?thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}" data-show-filter="true">${d.data.name}</a>`
                     break
                     default:
                     navLink += `<a href="/${d.data.name}">${d.data.name}</a>`
@@ -195,12 +195,22 @@ export default {
             })
         },
         ...mapGetters([
-         'getActiveSubcat',
-         'getActiveThema'
-       ]),
+            'getActiveSubcat',
+            'getActiveThema'
+        ]),
+        ...mapActions([
+          'setShowFilter'
+        ]),
         navigate (event) {
             const href = event.target.getAttribute('href')
+            const dataShowFilter = event.target.getAttribute('data-show-filter')
             if (href) {
+                if (dataShowFilter) {
+                    this.setShowFilter(true)
+                } else {
+                    this.setShowFilter(false)
+                }
+
                 event.preventDefault()
                 this.$router.push(href)
             }

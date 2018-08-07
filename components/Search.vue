@@ -4,13 +4,20 @@
             v-for="result in results" 
             :key="result.slug" 
             class="navbar-item" 
-            :to="result.slug">
+            :to="result.slug"
+            @click.native="setShowFilter(false)">
             {{ result.slug }}
         </nuxt-link>
     </div>
 </template>
 <script>
+import { mapActions } from 'vuex'
 export default {
-    props: ['results']
+    props: ['results'],
+    methods: {
+      ...mapActions([
+        'setShowFilter'
+      ])
+    }
 }
 </script>
