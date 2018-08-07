@@ -1,8 +1,14 @@
 <template>
-    <div>
-        <svg width="950" height="920">
-	    </svg>
-    </div>
+    <article class="sitemap">
+        <header class="article-header">
+            <h1 class="article-title">Sitemap</h1>
+        </header>
+        <section class="article-content">
+            <div class="editor-content">
+                <svg width="950" height="920"></svg>
+            </div>
+        </section>
+    </article>
 </template>
 
 <script>

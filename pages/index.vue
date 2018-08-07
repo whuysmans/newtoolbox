@@ -1,19 +1,18 @@
 <template>
-  <div class="section">
-    <transition name="fade">
-      <section class="section intro-copy columns" v-if="!filterIsActive">
-        <div class="container column is-three-fifths">
-              <div v-html="homeInfo.Beschrijving"></div>
-              <article class="message is-link">
-                <div v-html="homeInfo.Extra"></div> 
-              </article>
-        </div>
-        <div class="column">
-          <img :src="homeInfo.Afbeelding" /> 
+  <section class="page-content">
+    <article class="home">
+      <header class="article-header">
+        <h1 class="article-title">Toolbox Formatieve Evaluatie</h1>
+      </header>
+      <section class="article-content">
+        <div class="editor-content" v-html="homeInfo.Beschrijving"></div>
+        <div class="article-figure">
+          <img :src="homeInfo.Afbeelding" />
         </div>
       </section>
-    </transition>
-  </div>
+      <aside class="article-meta" v-html="homeInfo.Extra"></aside>
+    </article>
+  </section>
 </template>
 
 <script>

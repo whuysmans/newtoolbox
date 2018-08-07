@@ -1,5 +1,5 @@
 <template>
-  <nav class="pagination" role="navigation" aria-label="navigation">
+  <nav class="article-navigation" role="navigation" aria-label="navigation">
       <nuxt-link :to="prev" class="pagination-previous" :disabled="!isNotFirst">
          &lt; 
       </nuxt-link>

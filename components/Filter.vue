@@ -31,13 +31,7 @@
             </li>
           </ul>
       </div>
-      <thema v-for="thema in themas" 
-            :key="thema._id" 
-            :class="thema.Slug" 
-            class="kernthema-content" 
-            :thema="thema"
-            :fiches="fiches">
-      </thema>
+      
   </div>
 </template>
 <script>
@@ -59,7 +53,8 @@ export default {
  methods: {
      ...mapActions([
          'setActiveSubcat',
-         'setActiveThema'
+         'setActiveThema',
+         'setShowFilter'
      ]),
      ...mapGetters([
          'getActiveThema',
@@ -71,7 +66,8 @@ export default {
         if (this.getActiveThema() === name.trim()) {
             this.setActiveThema('')
         } else {
-        this.setActiveThema(name.trim())
+            this.setActiveThema(name.trim())
+            this.setShowFilter(true)
         }
      }
  },

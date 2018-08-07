@@ -1,11 +1,22 @@
 <template>
-  <div> 
-      <div class="themaContent" :class="thema.Slug" v-if="isActiveThema">
-          <div v-html="thema.Content"></div>
-          <div class="notification" id="subcat-buttons">
-              <subcat v-for="subcat in thema.Subcat" :subcat="subcat" :fiches="fiches" :key="subcat._id"></subcat>
-          </div>
-      </div>
+  <div v-if="isActiveThema"> 
+      <header class="kernthema-header">
+          <h1 class="kernthema-title">
+              {{ thema.Titel }}
+          </h1>
+      </header>
+      <section class="kernthema-content" :class="thema.Slug" >
+          <div class="editor-content" v-html="thema.Content"></div>
+          <section class="subcategories">
+              <ul class="unstyled-list subcat-list">
+                  <subcat v-for="subcat in thema.Subcat" 
+                    :subcat="subcat" 
+                    :fiches="fiches" 
+                    :key="subcat._id">
+                  </subcat>
+              </ul>
+          </section>
+      </section>
   </div>
 </template>
 <script>
@@ -25,13 +36,14 @@ export default {
       ...mapGetters([
         'getActiveThema',
         'getClassSlug',
-        'getActiveSubcat'
+        'getActiveSubcat',
+        'getShowFilter'
       ])
   },
   computed: {
       isActiveThema () {
-          return this.getActiveThema().trim() === this.thema.Titel || 
-                    this.getActiveThema().trim() === this.thema.Slug
+          return (this.getActiveThema().trim() === this.thema.Titel || 
+                    this.getActiveThema().trim() === this.thema.Slug)
       },
       backgroundColor (title) {
           return this.getClassSlug(title)

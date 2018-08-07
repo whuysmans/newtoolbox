@@ -1,12 +1,20 @@
 <template>
-    <div id="fiches-list">
-        <nuxt-link class="fiche-link" v-for="fiche in fiches" :to="fiche.Slug" :key="fiche.Slug">{{ fiche.Slug }}</nuxt-link>
-    </div>
+    <ul class="unstyled-list fiche-list">
+        <li class="fiche-link" v-for="fiche in fiches" :key="fiche.Slug">
+            <nuxt-link :to="fiche.Slug">{{ fiche.Slug }}</nuxt-link>
+        </li>
+    </ul>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
-  props: ['fiches']
+  props: ['fiches'],
+  methods: {
+      ...mapActions([
+          'setShowFilter'
+      ])
+  }
 }
 </script>
 

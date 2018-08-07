@@ -1,21 +1,23 @@
 <template>
-<div class="modal" :class="{'is-active': isActive}">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <!-- <transition name="page"> -->
-      <section class="container">
-        <div class="main fiche-main">
-            <page-header :fiche="fiche" :color="backgroundColor"></page-header>
+<section class="page-content">
+    <article class="fiche">
+        <header class="article-header">
+            <h1 class="article-title">
+                {{ fiche.Titel }}
+            </h1>
+            <div class="article-download">
+                <a class="icon is-small download-button" @click.prevent="download()">
+                    <i class="fas fa-download"></i>
+                    <span class="download-button-text">Download deze fiche</span>
+                </a>
+            </div>
+        </header>
+        <section class="article-content">
             <fiche-content :fiche="fiche" :color="textColor"></fiche-content>
-        </div>
-        <pagination :slug="fiche.Slug"></pagination>
-      </section>
-  <!-- </transition> -->
-      <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
-  </div>
-  
-</div>
-  
+            <pagination :slug="fiche.Slug"></pagination> 
+        </section>
+    </article>
+</section>
 </template>
 <script>
 import FicheContent from '../components/FicheContent'

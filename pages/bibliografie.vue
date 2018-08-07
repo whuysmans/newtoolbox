@@ -1,18 +1,16 @@
 <template>
-
-  <div class="modal" :class="{'is-active': isActive}">
-    <div class="modal-background"></div>
-    <div class="modal-content">
-      <!-- <transition name="page"> -->
-        <section class="container content">
-          <h1 class="page-title">{{ biblio.Titel }}</h1>
-          <div class="text-content" v-html="biblio.Content"></div>
-        </section>
-    <!-- </transition> -->
-    </div>
-    <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
-  </div>
-
+  <section class="page-content">
+    <article class="biblio">
+      <header class="article-header">
+        <h1 class="article-title">
+          {{ biblio.Titel }}
+        </h1>
+      </header>
+      <section class="article-content">
+        <div class="editor-content" v-html="biblio.Content"></div>
+      </section>
+    </article>
+  </section>
 </template>
 <script>
 export default {

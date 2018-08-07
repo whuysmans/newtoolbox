@@ -1,12 +1,15 @@
 <template>
-    <div>
-        <a :class="{'is-active': isActiveSubcat(subcat.display)}"
-        @click="handleSubcatClick(subcat.display)"
-            >
-            <span v-html="subcat.description"></span>
-        </a>
+    <li class="subcat">
+        <h3 class="subcat-title">
+            {{ subcat.display }}
+        </h3>
+        <div :class="{'is-active': isActiveSubcat(subcat.display)}"
+            @click="handleSubcatClick(subcat.display)"
+            class="subcat-description"
+            v-html="subcat.description">
+        </div>
         <fiches-list v-if="isActiveSubcat(subcat.display)" :fiches="filteredFiches"></fiches-list>
-    </div>
+    </li>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
