@@ -19,7 +19,8 @@ const createStore = () => {
             activeThema: '',
             sortedFiches: [],
             searchIsActive: false,
-            searchWord: ''
+            searchWord: '',
+            showFilter: false
         },
         mutations: {
             LOAD_INFO_FICHES (state, fiches) {
@@ -72,7 +73,10 @@ const createStore = () => {
             },
             SET_CURRENT_SEARCH_WORD (state, str) {
                 state.searchWord = str
-            } 
+            },
+            SET_SHOW_FILTER (state, bool) {
+                state.showFilter = bool
+            }
         },
         actions: {
             async nuxtServerInit ({commit}, state) {
@@ -106,6 +110,9 @@ const createStore = () => {
             },
             setCurrentSearchWord (context, str) {
                 context.commit('SET_CURRENT_SEARCH_WORD', str)
+            },
+            setShowFilter (context, bool) {
+                context.commit('SET_SHOW_FILTER', bool)
             }
         },
         getters: {
@@ -207,6 +214,9 @@ const createStore = () => {
             },
             getCurrentSearchWord (state) {
                 return state.searchWord
+            },
+            getShowFilter (state) {
+                return state.showFilter
             }
         }
     })
