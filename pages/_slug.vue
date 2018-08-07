@@ -32,6 +32,7 @@ import Pagination from '../components/Pagination'
 import PageHeader from '../components/PageHeader'
 import Breadcrumb from '../components/Breadcrumb'
 import Filter from '../components/Filter'
+import { mapActions } from 'vuex'
 export default {
   components: {
       'fiche-content': FicheContent,
@@ -65,6 +66,10 @@ export default {
       }
   },
   methods: {
+        ...mapActions([
+            'setActiveSubcat',
+            'setActiveThema'
+        ]),
         addListeners () {
             this._links = this.$el.getElementsByTagName('a')
             for (let i = 0; i < this._links.length; i++) {
@@ -93,6 +98,8 @@ export default {
   },
   mounted () {
       this.addListeners()
+      this.setActiveSubcat(this.fiche.Subcategorie[0].display.trim())
+      this.setActiveThema(this.fiche.Kernthemas.display.trim())
   }
 }
 </script>

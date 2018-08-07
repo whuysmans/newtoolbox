@@ -120,18 +120,18 @@ const createStore = () => {
                 return state.biblio
             },
             getInfoFiches (state) {
-            return state.infofiches
+                return state.infofiches
             },
             getClassSlug (state) {
-            return (title) => {
-                return state.classSlug[title]
-            }
+                return (title) => {
+                    return state.classSlug[title]
+                }
             },
             getKernThemas (state) {
-            return state.kernthemas
+                return state.kernthemas
             },
             getHomeInfo (state) {
-            return state.homeInfo
+                return state.homeInfo
             },
             getActiveSubcat (state) {
                 return state.activeSubcat
