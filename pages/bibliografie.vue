@@ -1,5 +1,5 @@
 <template>
-  <section class="page-content">
+  <section class="page-content container">
     <article class="biblio">
       <header class="article-header">
         <h1 class="article-title">

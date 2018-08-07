@@ -1,7 +1,11 @@
 <template>
-<section class="page-content">
+<div class="modal" :class="{'is-active': isActive}">
+<div class="modal-background"></div>
+<div class="modal-content">
+<section class="page-content container">
     <article class="fiche">
         <header class="article-header">
+            <breadcrumb :fiche="fiche" />
             <h1 class="article-title">
                 {{ fiche.Titel }}
             </h1>
@@ -18,18 +22,23 @@
         </section>
     </article>
 </section>
+<button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
+</div>  
+</div>
 </template>
 <script>
 import FicheContent from '../components/FicheContent'
 import Pagination from '../components/Pagination'
 import PageHeader from '../components/PageHeader'
+import Breadcrumb from '../components/Breadcrumb'
 import Filter from '../components/Filter'
 export default {
   components: {
       'fiche-content': FicheContent,
       'pagination': Pagination,
       'page-header': PageHeader,
-      'toolbox-filter': Filter
+      'toolbox-filter': Filter,
+      'breadcrumb': Breadcrumb,
   },
   data () {
     return {

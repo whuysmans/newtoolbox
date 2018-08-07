@@ -1,38 +1,35 @@
 <template>
-  <div class="container is-fluid">
-      <div class="tabs is-boxed is-medium">
-          <ul>
-            <li>
-                <nuxt-link to="/" @click.native="setActiveThema('')">
-                    <span class="icon is-small">
-                        <i class="fas fa-home"></i>
-                    </span>
-                </nuxt-link>
-            </li>
-            <li v-for="thema in themas" 
-                :key="thema._id" 
-                :class="[(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
-                @click="handleThemaClick">
-                <a>
-                    <span class="icon is-small">
-                        <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
-                    </span>
-                    <span>{{ thema.Titel }}</span>
-                </a>
-            </li>
-            
-            <li>
-              <nuxt-link to="/overzicht">
-                <span class="icon is-small">
-                    <i class="fas fa-tree"></i>
-                </span>
-                <span>Sitemap</span>
+    <div class="tabs is-boxed is-medium">
+        <ul>
+          <li class="tab-home">
+              <nuxt-link to="/" @click.native="setActiveThema('')">
+                  <span class="icon is-small">
+                      <i class="fas fa-home"></i>
+                  </span>
               </nuxt-link>
-            </li>
-          </ul>
-      </div>
-      
-  </div>
+          </li>
+          <li v-for="thema in themas" 
+              :key="thema._id" 
+              :class="'tab-' + thema.Slug + ' ' + [(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
+              @click="handleThemaClick">
+              <a>
+                  <span class="icon is-small">
+                      <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
+                  </span>
+                  <span>{{ thema.Titel }}</span>
+              </a>
+          </li>
+          
+          <li class="tab-sitemap">
+            <nuxt-link to="/overzicht">
+              <span class="icon is-small">
+                  <i class="fas fa-tree"></i>
+              </span>
+              <span>Sitemap</span>
+            </nuxt-link>
+          </li>
+        </ul>
+    </div>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
@@ -67,7 +64,7 @@ export default {
             this.setActiveThema('')
         } else {
             this.setActiveThema(name.trim())
-            this.setShowFilter(true)
+            // this.setShowFilter(true)
         }
      }
  },

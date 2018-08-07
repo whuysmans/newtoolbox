@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isActiveThema"> 
+  <div v-if="isActiveThema" class="kernthema"> 
       <header class="kernthema-header">
           <h1 class="kernthema-title">
               {{ thema.Titel }}

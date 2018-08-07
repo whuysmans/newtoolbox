@@ -1,5 +1,5 @@
 <template>
-  <section class="page-content">
+  <section class="page-content container">
     <article class="home">
       <header class="article-header">
         <h1 class="article-title">Toolbox Formatieve Evaluatie</h1>
@@ -10,7 +10,7 @@
           <img :src="homeInfo.Afbeelding" />
         </div>
       </section>
-      <aside class="article-meta" v-html="homeInfo.Extra"></aside>
+      <aside class="article-meta editor-content" v-html="homeInfo.Extra"></aside>
     </article>
   </section>
 </template>

@@ -6,6 +6,9 @@
   margin: 0;
 }
 
+.editor-content {
+  max-width: 40em;
+}
 
 // html, body {
 //   overflow-x: hidden;
@@ -35,9 +38,21 @@
 // }
 
 
+.kernthemas > .kernthema {
+  padding: 2rem 2em;
+  // background-color: lighten($primary, 60);
+}
+
+
+
+.page-content {
+  margin-top: 3rem;
+  margin-bottom: 4rem;
+}
 
 
 
 
-
-
+footer.site-footer {
+  padding: 1rem;
+}

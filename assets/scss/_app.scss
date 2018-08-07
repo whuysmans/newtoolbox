@@ -49,3 +49,78 @@
   background-color: #fff2ac;
   background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
 }
+
+
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// KERNTHEMA'S
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+
+
+#filter {
+  .is-active {
+    &.tab-leren-bijsturen a {
+      background-color: lighten($pink, 5);
+    }
+    &.tab-leren-zichtbaar-maken a {
+      background-color: lighten($azure, 30);
+    }
+    &.tab-leren-in-een-veilig-en-stimulerend-leerklimaat a {
+      background-color: lighten($aquamarine, 10);
+    }
+  }
+}
+.kernthemas {
+  .leren-bijsturen {
+    background-color: lighten($pink, 5);
+  }
+  .leren-zichtbaar-maken {
+    background-color: lighten($azure, 30);
+  }
+  .leren-in-een-veilig-en-stimulerend-leerklimaat {
+    background-color: lighten($aquamarine, 10);
+  }
+}
+
+.kernthemas {
+  .subcat {
+    margin: 1.5rem 2rem;
+  }
+  .fiche-list {
+    list-style: decimal;
+    list-style-position: outside;
+    margin: .5rem 1.5rem .5rem 3rem;
+  }
+  .subcat-link {
+    display: block;
+    text-decoration: underline;
+    font-size: 80%;
+  }
+  .subcat-link-verberg {
+    margin: -.5rem 1.5rem .5rem 3rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// FOOTER
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+footer.site-footer {
+  text-align: center;
+  background-color: $primary;
+  color: $white;
+  font-size: 80%;
+  a, a:hover, a:focus {
+    color: $white;
+  }
+}

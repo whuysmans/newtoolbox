@@ -4,11 +4,13 @@
             {{ subcat.display }}
         </h3>
         <div :class="{'is-active': isActiveSubcat(subcat.display)}"
-            @click="handleSubcatClick(subcat.display)"
-            class="subcat-description"
+            class="subcat-description editor-content"
             v-html="subcat.description">
+
         </div>
+        <a class="subcat-link subcat-link-toon" v-if="!isActiveSubcat(subcat.display)" @click.prevent="handleSubcatClick(subcat.display)">Toon de fiches</a>
         <fiches-list v-if="isActiveSubcat(subcat.display)" :fiches="filteredFiches"></fiches-list>
+        <a class="subcat-link subcat-link-verberg" v-if="isActiveSubcat(subcat.display)" @click.prevent="handleSubcatClick(subcat.display)">Verberg de fiches</a>
     </li>
 </template>
 <script>

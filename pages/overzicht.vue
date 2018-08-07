@@ -1,5 +1,5 @@
 <template>
-    <section class="page-content">
+    <section class="page-content container">
         <tree-view :data="data"></tree-view>
     </section>
 </template>

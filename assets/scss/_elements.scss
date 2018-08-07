@@ -19,7 +19,7 @@ a, a:hover, a:visited, a:active {
 }
 
 
-.text-content {
+.editor-content {
   a {
     &:hover,
     &:focus {
@@ -51,41 +51,41 @@ a, a:hover, a:visited, a:active {
 
 
 // SHUTTER
-#shutter {
-  display: block;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 100%;
-  background: $white; // rgba($white, 1);
-  z-index: 99; // right below header
+// #shutter {
+//   display: block;
+//   position: fixed;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom: 100%;
+//   background: $white; // rgba($white, 1);
+//   z-index: 99; // right below header
 
-  // detaults + transition back to normal (hidden & at top)
-  transition-delay: 0s;
-  transition-duration: 0;
-  transition-property: all;
-  // transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); //easeInQuad;
-  // transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); // easeOutCirc
-  // transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); // easeOutExpo
-}
+//   // detaults + transition back to normal (hidden & at top)
+//   transition-delay: 0s;
+//   transition-duration: 0;
+//   transition-property: all;
+//   // transition-timing-function: cubic-bezier(0.55, 0.085, 0.68, 0.53); //easeInQuad;
+//   // transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1); // easeOutCirc
+//   // transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); // easeOutExpo
+// }
 
-#shutter.active {
-  bottom: 0;
+// #shutter.active {
+//   bottom: 0;
 
-  // transitioning open (covering full page)
-  transition-duration: .4s;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); // easeOutExpo
-}
+//   // transitioning open (covering full page)
+//   transition-duration: .4s;
+//   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); // easeOutExpo
+// }
 
-#shutter.active-out {
-  bottom: 0;
-  top: 100%;
+// #shutter.active-out {
+//   bottom: 0;
+//   top: 100%;
 
-  // transitioning out (going to the bottom)
-  transition-duration: .4s;
-  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); // easeOutExpo
-}
+//   // transitioning out (going to the bottom)
+//   transition-duration: .4s;
+//   transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1); // easeOutExpo
+// }
 
 
 
@@ -100,120 +100,120 @@ a, a:hover, a:visited, a:active {
 
 // OVERLAY
 
-.reveal {
+// .reveal {
 
-  background: transparent;
-  position: fixed;
-  z-index: 500;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow-y: auto;
+//   background: transparent;
+//   position: fixed;
+//   z-index: 500;
+//   top: 0;
+//   right: 0;
+//   bottom: 0;
+//   left: 0;
+//   overflow-y: auto;
 
-  &.reveal-inactive {
-    width: 0;
-    height: 0;
-    min-height: inherit;
-  }
+//   &.reveal-inactive {
+//     width: 0;
+//     height: 0;
+//     min-height: inherit;
+//   }
 
-  .reveal-inner {
-    background: $light-gray; //$charcoal_grey;
-    // margin: $global-margin;
-    // padding-top: $global-margin;
-    padding-bottom: $global-margin;
-    min-height: 100vh;
-    position: relative;
-    // .page-template-page-contact-list &,
-    // .page-template-page-contact & {
-      margin: $global-margin/3;
-    // }
+//   .reveal-inner {
+//     background: $light-gray; //$charcoal_grey;
+//     // margin: $global-margin;
+//     // padding-top: $global-margin;
+//     padding-bottom: $global-margin;
+//     min-height: 100vh;
+//     position: relative;
+//     // .page-template-page-contact-list &,
+//     // .page-template-page-contact & {
+//       margin: $global-margin/3;
+//     // }
 
-    overflow-x: hidden;
-    .wrap {
-      overflow: visible;
-    }
-  }
+//     overflow-x: hidden;
+//     .wrap {
+//       overflow: visible;
+//     }
+//   }
 
-  &#navreveal .reveal-inner {
-    background: $medium-gray;
-    margin: 0;
-  }
+//   &#navreveal .reveal-inner {
+//     background: $medium-gray;
+//     margin: 0;
+//   }
 
-  .reveal-controls {
-    padding: $global-margin;
-    padding-right: $global-margin * 4;
-    position: relative;
-    min-height: $global-margin * 3; // height close button
+//   .reveal-controls {
+//     padding: $global-margin;
+//     padding-right: $global-margin * 4;
+//     position: relative;
+//     min-height: $global-margin * 3; // height close button
 
-    .close-button,
-    .nav-close-button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: $global-margin*3;
-      height: $global-margin*3;
-      text-align: center;
-      padding-top: $global-margin;
-      cursor: pointer;
-      @include cipt-transition();
-      // .svgicon {
-      //   color: $gray;
-      //   font-size: 1.6666667rem;
-      //   line-height: 2.71;
-      // }
-      &:hover,
-      &:focus {
-        .svgicon {
-          color: blue;
-        }
-      }
-    }
+//     .close-button,
+//     .nav-close-button {
+//       position: absolute;
+//       top: 0;
+//       right: 0;
+//       width: $global-margin*3;
+//       height: $global-margin*3;
+//       text-align: center;
+//       padding-top: $global-margin;
+//       cursor: pointer;
+//       @include cipt-transition();
+//       // .svgicon {
+//       //   color: $gray;
+//       //   font-size: 1.6666667rem;
+//       //   line-height: 2.71;
+//       // }
+//       &:hover,
+//       &:focus {
+//         .svgicon {
+//           color: blue;
+//         }
+//       }
+//     }
 
-  }
+//   }
 
-  .reveal-content,
-  .nav-reveal-content {
-    padding: 0 $global-margin $global-margin*2 $global-margin;
-    .responsive-embed {
-      margin-left: 0;
-      margin-right: 0;
-    }
-    .contained {
-      padding-top: 0;
-    }
-  }
+//   .reveal-content,
+//   .nav-reveal-content {
+//     padding: 0 $global-margin $global-margin*2 $global-margin;
+//     .responsive-embed {
+//       margin-left: 0;
+//       margin-right: 0;
+//     }
+//     .contained {
+//       padding-top: 0;
+//     }
+//   }
 
   
 
-  &.reveal-inactive {
-    // animate out:
-    opacity: 0;
-    transform: scale(0.8);
-    // -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
-    transition: transform 0.2s, easeInQuad 0.2s;
+//   &.reveal-inactive {
+//     // animate out:
+//     opacity: 0;
+//     transform: scale(0.8);
+//     // -webkit-transition: -webkit-transform 0.2s, opacity 0.2s, visibility 0s 0.2s;
+//     transition: transform 0.2s, easeInQuad 0.2s;
 
-    .reveal-content {
-      opacity: 0;
-      transition: opacity 0.1s easeInQuad 0.1s;
-    }
-  }
-  // &.show-effect {
-    // @include animated(slideInUp);
-    // animate in:
-    opacity: 1;
-    // -webkit-transform: scale(1);
-    transform: scale(1);
-    // -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
-    transition: transform 0.2s, easeInQuad 0.2s;
-    .reveal-content,
-    .nav-reveal-content {
-      opacity: 1;
-      transition: opacity 0.1s easeInQuad 0.1s;
-    }
-  // }
+//     .reveal-content {
+//       opacity: 0;
+//       transition: opacity 0.1s easeInQuad 0.1s;
+//     }
+//   }
+//   // &.show-effect {
+//     // @include animated(slideInUp);
+//     // animate in:
+//     opacity: 1;
+//     // -webkit-transform: scale(1);
+//     transform: scale(1);
+//     // -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+//     transition: transform 0.2s, easeInQuad 0.2s;
+//     .reveal-content,
+//     .nav-reveal-content {
+//       opacity: 1;
+//       transition: opacity 0.1s easeInQuad 0.1s;
+//     }
+//   // }
 
-}
+// }
 
 
 
