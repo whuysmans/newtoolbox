@@ -1,7 +1,7 @@
 <template>
-<div class="modal" :class="{'is-active': isActive}">
+<!-- <div class="modal" :class="{'is-active': isActive}">
 <div class="modal-background"></div>
-<div class="modal-content">
+<div class="modal-content"> -->
 <section class="page-content container">
     <article class="fiche">
         <header class="article-header">
@@ -22,9 +22,9 @@
         </section>
     </article>
 </section>
-<button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
+<!-- <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
 </div>  
-</div>
+</div> -->
 </template>
 <script>
 import FicheContent from '../components/FicheContent'

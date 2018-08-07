@@ -10,6 +10,8 @@
   max-width: 40em;
 }
 
+
+
 // html, body {
 //   overflow-x: hidden;
 //   // overflow-y: hidden;
@@ -38,9 +40,21 @@
 // }
 
 
-.kernthemas > .kernthema {
-  padding: 2rem 2em;
-  // background-color: lighten($primary, 60);
+
+.site-header {
+  z-index: 100;
+  position: relative;
+  nav#filter {
+    background: $white;
+  }
+}
+
+.kernthemas {
+  z-index: 20;
+  & > .kernthema {
+    padding: 2rem 2em;
+    // background-color: lighten($primary, 60);
+  }
 }
 
 

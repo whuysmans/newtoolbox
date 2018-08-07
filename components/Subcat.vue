@@ -1,17 +1,18 @@
 <template>
-    <li class="subcat">
+    <div :class="{'is-active': isActiveSubcat(subcat.display)}" class="column subcat">
         <h3 class="subcat-title">
             {{ subcat.display }}
         </h3>
-        <div :class="{'is-active': isActiveSubcat(subcat.display)}"
-            class="subcat-description editor-content"
+        <div class="subcat-description editor-content"
             v-html="subcat.description">
 
         </div>
         <a class="subcat-link subcat-link-toon" v-if="!isActiveSubcat(subcat.display)" @click.prevent="handleSubcatClick(subcat.display)">Toon de fiches</a>
-        <fiches-list v-if="isActiveSubcat(subcat.display)" :fiches="filteredFiches"></fiches-list>
+        <transition name="fade">
+          <fiches-list v-if="isActiveSubcat(subcat.display)" :fiches="filteredFiches"></fiches-list>
+        </transition>
         <a class="subcat-link subcat-link-verberg" v-if="isActiveSubcat(subcat.display)" @click.prevent="handleSubcatClick(subcat.display)">Verberg de fiches</a>
-    </li>
+    </div>
 </template>
 <script>
 import { mapGetters, mapActions } from 'vuex'
@@ -51,11 +52,3 @@ export default {
      }
 }
 </script>
-<style scoped>
-    #subcat-buttons a {
-        text-decoration: none;
-    }
-    #subcat-buttons a.is-active {
-        color: #0000FF;
-    }
-</style>

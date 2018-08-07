@@ -1,13 +1,16 @@
 <template>
-    <div class="tabs is-boxed is-medium">
+  <nav id="main-nav" class="tabs is-boxed is-medium">
+    <ul>
+      <li class="tab-home">
+          <nuxt-link to="/" @click.native="setShowFilter(false)">
+              <span class="icon is-small">
+                  <i class="fas fa-home"></i>
+              </span>
+          </nuxt-link>
+      </li>
+    </ul>
+    <div class="thema-tabs">
         <ul>
-          <li class="tab-home">
-              <nuxt-link to="/" @click.native="setActiveThema('')">
-                  <span class="icon is-small">
-                      <i class="fas fa-home"></i>
-                  </span>
-              </nuxt-link>
-          </li>
           <li v-for="thema in themas" 
               :key="thema._id" 
               :class="'tab-' + thema.Slug + ' ' + [(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
@@ -19,17 +22,19 @@
                   <span>{{ thema.Titel }}</span>
               </a>
           </li>
-          
-          <li class="tab-sitemap">
-            <nuxt-link to="/overzicht">
-              <span class="icon is-small">
-                  <i class="fas fa-tree"></i>
-              </span>
-              <span>Sitemap</span>
-            </nuxt-link>
-          </li>
         </ul>
     </div>
+    <ul>
+      <li class="tab-sitemap">
+        <nuxt-link to="/overzicht" @click.native="setShowFilter(false)">
+          <span class="icon is-small">
+              <i class="fas fa-tree"></i>
+          </span>
+          <span>Sitemap</span>
+        </nuxt-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 <script>
 import { mapActions, mapGetters } from 'vuex'
@@ -59,11 +64,12 @@ export default {
      ]),
      handleThemaClick (event) {
         let name = event.target.outerText
-        this.setActiveSubcat('')
+        this.setShowFilter(true)
         if (this.getActiveThema() === name.trim()) {
-            this.setActiveThema('')
+            // this.setActiveThema('')
         } else {
             this.setActiveThema(name.trim())
+            this.setActiveSubcat('')
             // this.setShowFilter(true)
         }
      }

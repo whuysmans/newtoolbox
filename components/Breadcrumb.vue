@@ -2,7 +2,7 @@
     <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li>
-                <nuxt-link to="/">
+                <nuxt-link to="/" @click.native="setShowFilter(false)">
                     <span class="icon is-small">
                         <i class="fas fa-home" aria-hidden="true"></i>
                     </span>
@@ -20,9 +20,7 @@
                 </a>
             </li>
             <li class="is-active">
-                <a href="#">
-                    <span>{{ fiche.Slug }}</span>
-                </a>
+                <span>{{ fiche.Titel }}</span>
             </li>
         </ul>
     </nav>
@@ -35,7 +33,8 @@ export default {
    methods: {
        ...mapActions([
          'setActiveSubcat',
-         'setActiveThema'
+         'setActiveThema',
+         'setShowFilter'
        ]),
        ...mapGetters([
          'getRelatedSubcats'
@@ -43,12 +42,12 @@ export default {
        handleThemaClick (event) {
            this.setActiveThema(event.target.outerText.trim())
            this.setActiveSubcat('')
-           this.$router.push('/')
+           this.setShowFilter(true)
        },
        handleSubcatClick (event) {
            this.setActiveThema(this.fiche.Kernthemas.display.trim())
            this.setActiveSubcat(event.target.outerText.trim())
-           this.$router.push('/')
+           this.setShowFilter(true)
        }
    }
 }

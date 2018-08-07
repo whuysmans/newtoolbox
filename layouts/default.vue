@@ -7,7 +7,11 @@
       </nav>
     </header>
     <thema-list :themas="themas" :fiches="fiches"></thema-list>
-    <nuxt/>
+    
+
+    <transition name="fade">
+      <nuxt/>
+    </transition>
 
     <footer class="site-footer">
       credits, how to.
