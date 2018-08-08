@@ -183,8 +183,9 @@ export default {
                     return d.data.name === activeThema
                 })
             }
-            console.log("result", result.data()[0])
-            markPath(result.data()[0])
+            if (result && result.data) {
+                markPath(result.data()[0])
+            }
         }
 
         this.addListeners()
