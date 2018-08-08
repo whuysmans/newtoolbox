@@ -7,7 +7,7 @@
 }
 
 .editor-content {
-  max-width: 40em;
+  max-width: 50em;
 }
 
 
@@ -50,6 +50,7 @@
 }
 
 .kernthemas {
+  position: relative;
   z-index: 20;
   & > .kernthema {
     padding: 2rem 2em;

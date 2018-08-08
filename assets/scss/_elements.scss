@@ -28,6 +28,10 @@ a, a:hover, a:visited, a:active {
   }
 }
 
+.button:hover, .button:focus {
+  border-color: $link;
+  color: $link; 
+}
 
 
 
@@ -54,6 +58,8 @@ a, a:hover, a:visited, a:active {
 }
 
 .breadcrumb {
+  margin-bottom: $paragraph-margin-bottom/2 !important;
+  margin-top: 1.5rem;
   font-size: 80%;
   li + li::before {
     color: lighten($primary, 30);
@@ -80,6 +86,34 @@ a, a:hover, a:visited, a:active {
   // }
 }
 
+nav.article-navigation {
+  overflow: hidden;
+  .button.disabled {
+    background-color: $light-gray;
+    pointer-events: none;
+  }
+  .button {
+    margin: .5rem;
+    &.pagination-next {
+      float: right;
+    }
+  }
+
+
+  @media screen and (min-width: 769px) {
+    position: fixed;
+    top: 50%;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+  }
+}
+.article-content {
+  position: relative;
+  z-index: 10;
+}
+
+
 
 
 // MODAL
@@ -101,7 +135,19 @@ a, a:hover, a:visited, a:active {
 
 
 // MISC
+.article-figure {
+  margin-top: $paragraph-margin-bottom*1.5;
+  margin-bottom: $paragraph-margin-bottom*1.5;
+  margin-left: $paragraph-margin-bottom*-1.5;
+}
 
+
+.download-button {
+  font-size: 80%;
+  .icon {
+    margin-right: 0.5em;
+  }
+}
 
 
 // SHUTTER

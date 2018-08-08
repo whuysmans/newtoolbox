@@ -1,7 +1,9 @@
-svg {
+
+.sitemap svg {
     margin-left: auto;
     margin-right: auto;
     display: block;
+    overflow: visible;
 }
 
 .node circle {
@@ -17,57 +19,80 @@ svg {
 } */
 
 .node--internal text {
-    text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+    // text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
+    text-shadow:
+      1px 1px 0px $white, -1px -1px 0px $white,
+      2px 2px 0px $white, -2px -2px 0px $white,
+      3px 3px 0px $white, -3px -3px 0px $white,
+      4px 4px 0px $white, -4px -4px 0px $white,
+      5px 5px 0px $white, -5px -5px 0px $white;
 }
 
-.node.leren-zichtbaar-maken text {
-    background: pink;
-    /* font-size: 200%; */
-    color: blue;
-}
+// .node.leren-zichtbaar-maken text {
+//     background: pink;
+//     /* font-size: 200%; */
+//     color: blue;
+// }
 
 .link {
     fill: none;
-    stroke: #555;
+    stroke: lighten($primary, 10);
     stroke-opacity: 0.4;
     stroke-width: 1.5px;
 } 
 
 .node.leren-bijsturen circle {
-    fill: #e9d4d6;
+    fill: $pink;
 }
 
 .node.leren-zichtbaar-maken circle{
-    fill: #54cee7;
+    fill: $azure;
 }   
 
 .node.leren-in-een-veilig-en-stimulerend-leerklimaat circle{
-    fill: #c6e0dd;
+    fill: $aquamarine;
 }
 .tekst-leren-bijsturen {
-    color: #e9d4d6;
+    color: $pink;
 }
 
 .tekst-leren-zichtbaar-maken {
-    color: #54cee7;
+    color: $azure;
 }   
 
 .tekst-leren-in-een-veilig-en-stimulerend-leerklimaat {
-    color: #c6e0dd;
+    color: $aquamarine;
+}
+
+.bg-leren-bijsturen {
+    background-color: $pink;
+}
+
+.bg-leren-zichtbaar-maken {
+    background-color: $azure;
+}   
+
+.bg-leren-in-een-veilig-en-stimulerend-leerklimaat {
+    background-color: $aquamarine;
 }
 
 .leren-bijsturen .button {
-    border-color: #e9d4d6;
+    border-color: $pink;
 }
 
 .leren-zichtbaar-maken .button {
-    border-color: #54cee7;
+    border-color: $azure;
 }
 
 .leren-in-een-veilig-en-stimulerend-leerklimaat .button {
-    border-color: #c6e0dd;
+    border-color: $aquamarine;
 }
 
-.sub-tree {
-    stroke: red;
+path.sub-tree {
+  stroke: $primary;
+  stroke-opacity: 1;
+}
+.sub-tree circle,
+.sub-tree text {
+  fill: $primary !important;
 }

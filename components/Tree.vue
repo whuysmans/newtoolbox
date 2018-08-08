@@ -4,9 +4,7 @@
             <h1 class="article-title">Sitemap</h1>
         </header>
         <section class="article-content">
-            <div class="editor-content">
-                <svg width="950" height="920"></svg>
-            </div>
+            <svg width="950" height="920"></svg>
         </section>
     </article>
 </template>
@@ -78,8 +76,8 @@ export default {
 
         node.append("circle")
             .attr("r", 5)
-            .on("mouseover", handleMouseOver)
-            .on("mouseout", handleMouseOut)
+            // .on("mouseover", handleMouseOver)
+            // .on("mouseout", handleMouseOut)
 
         node.append("text")
             .attr("dy", 3)
@@ -94,7 +92,7 @@ export default {
                 let navLink = ''
                 switch (d.depth) {
                     case 0:
-                    navLink += `${d.data.name}`
+                    navLink += ``
                     case 1:
                     navLink += `<a href="/?thema=${d.data.name}" data-link-type="thema" data-show-filter="true">${d.data.name}</a>`
                     break
@@ -160,13 +158,13 @@ export default {
                 .classed("sub-tree", mode)
         }
 
-        function handleMouseOver (d, i) {
-            walk(d, true)
-        }
+        // function handleMouseOver (d, i) {
+        //     walk(d, true)
+        // }
 
-        function handleMouseOut (d, i) {
-            walk(d, false)
-        }
+        // function handleMouseOut (d, i) {
+        //     walk(d, false)
+        // }
 
         function getDeepestActiveNode () {
             let result = null
@@ -254,34 +252,4 @@ export default {
     
 }
 </script>
-<style scoped>
-   svg {
-        margin-left: auto;
-        margin-right: auto;
-        display: block;
-    }
-
-    .node circle {
-        fill: #999;
-    }
-
-    .node text {
-        font: 5px sans-serif;
-    }
-
-    .node--internal circle {
-        fill: #555;
-    }
-
-    .node--internal text {
-        text-shadow: 0 1px 0 #fff, 0 -1px 0 #fff, 1px 0 0 #fff, -1px 0 0 #fff;
-    }
-
-    .link {
-        fill: none;
-        stroke: #555;
-        stroke-opacity: 0.4;
-        stroke-width: 1.5px;
-    } 
-</style>
 

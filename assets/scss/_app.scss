@@ -85,12 +85,14 @@
 
 .kernthemas {
   .subcat {
-    margin: 1.5rem 2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
   }
   .fiche-list {
     list-style: decimal;
     list-style-position: outside;
-    margin: .5rem 1.5rem .5rem 3rem;
+    margin: .5rem 1.5rem .5rem 2rem;
   }
   .subcat-link {
     display: block;
@@ -99,7 +101,7 @@
     margin-top: -.5rem;
   }
   .subcat-link-verberg {
-    margin: -.5rem 1.5rem .5rem 3rem;
+    margin: -.5rem 1.5rem .5rem 2rem;
   }
 
   .subcat {
@@ -114,6 +116,40 @@
 
   // @include cipt-transition();
 }
+
+
+
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+// FICHE
+// ----------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------------
+
+
+.fiche {
+
+  .article-header {
+    margin-bottom: $paragraph-margin-bottom*2;
+  }
+
+  .article-section {
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    .icon {
+      position: absolute;
+      top: 0;
+      left: -3rem;
+      border-radius: 50%;
+      i {
+        color: $white;
+      }
+    }
+  }
+  
+}
+
+
 
 
 
