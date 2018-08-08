@@ -1,8 +1,8 @@
 <template>
-    <nav class="breadcrumb" aria-label="breadcrumbs">
+    <nav class="breadcrumb has-succeeds-separator" aria-label="breadcrumbs">
         <ul>
             <li>
-                <nuxt-link to="/" @click.native="setShowFilter(false)">
+                <nuxt-link to="/" @click.native="handleClearFilterClick()">
                     <span class="icon is-small">
                         <i class="fas fa-home" aria-hidden="true"></i>
                     </span>
@@ -48,6 +48,11 @@ export default {
            this.setActiveThema(this.fiche.Kernthemas.display.trim())
            this.setActiveSubcat(event.target.outerText.trim())
            this.setShowFilter(true)
+       },
+       handleClearFilterClick (event) {
+           this.setShowFilter(false)
+           this.setActiveThema('')
+           this.setActiveSubcat('')
        }
    }
 }

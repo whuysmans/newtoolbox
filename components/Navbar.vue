@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar is-dark">
       <div class="navbar-brand">
-          <nuxt-link to="/" class="navbar-item" @click.native="setShowFilter(false)"><strong>Toolbox Formatieve Evaluatie</strong></nuxt-link>
+          <nuxt-link to="/" class="navbar-item" @click.native="handleClearFilterClick()"><strong>Toolbox Formatieve Evaluatie</strong></nuxt-link>
           <div class="navbar-item has-dropdown" 
                 :class="{'is-active': getSearchIsActive()}" 
                 >               
@@ -21,8 +21,8 @@
           <div class="navbar-start">
           </div>
           <div class="navbar-end">
-                  <nuxt-link to="/" class="navbar-item is-hoverable" @click.native="setShowFilter(false)">Home</nuxt-link>
-                  <nuxt-link to="/bibliografie" class="navbar-item is-hoverable" @click.native="setShowFilter(false)">Bibliografie</nuxt-link>
+                  <nuxt-link to="/" class="navbar-item is-hoverable" @click.native="handleClearFilterClick()">Home</nuxt-link>
+                  <nuxt-link to="/bibliografie" class="navbar-item is-hoverable" @click.native="handleClearFilterClick()">Bibliografie</nuxt-link>
                   <a href="https://kdg.be" class="navbar-item is-hoverable">
                     <img src="https://cipt.be/toolbox/wp-content/uploads/2018/01/KdG_H_Closed-e1515855778724.png" width="112" height="28">
                   </a>
@@ -51,7 +51,9 @@ export default {
      ...mapActions([
          'setSearchIsActive',
          'setCurrentSearchWord',
-         'setShowFilter'
+         'setShowFilter',
+         'setActiveThema',
+         'setActiveSubcat'
      ]),
      getResults () {
         let result = null
@@ -66,6 +68,11 @@ export default {
             this.setSearchIsActive(true)
         }
         return result
+     },
+     handleClearFilterClick (event) {
+        this.setShowFilter(false)
+        this.setActiveThema('')
+        this.setActiveSubcat('')
      }
   },
   watch: {

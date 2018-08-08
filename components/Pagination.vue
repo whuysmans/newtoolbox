@@ -1,9 +1,9 @@
 <template>
   <nav class="article-navigation" role="navigation" aria-label="navigation">
-      <nuxt-link :to="prev" class="pagination-previous" :disabled="!isNotFirst">
+      <nuxt-link :to="prev" class="pagination-previous button" :disabled="!isNotFirst">
          &lt; 
       </nuxt-link>
-      <nuxt-link :to="next" class="pagination-next" :disabled="!isNotLast">
+      <nuxt-link :to="next" class="pagination-next button" :disabled="!isNotLast">
          &gt;
       </nuxt-link>
   </nav>

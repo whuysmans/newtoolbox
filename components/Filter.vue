@@ -1,8 +1,8 @@
 <template>
-  <nav id="main-nav" class="tabs is-boxed is-medium">
+  <nav id="main-nav" class="tabs is-boxed">
     <ul>
       <li class="tab-home">
-          <nuxt-link to="/" @click.native="setShowFilter(false)">
+          <nuxt-link to="/" @click.native="handleClearFilterClick()">
               <span class="icon is-small">
                   <i class="fas fa-home"></i>
               </span>
@@ -74,6 +74,11 @@ export default {
             this.setActiveFiche('')
             // this.setShowFilter(true)
         }
+     },
+     handleClearFilterClick (event) {
+        this.setShowFilter(false)
+        this.setActiveThema('')
+        this.setActiveSubcat('')
      }
  },
  computed: {

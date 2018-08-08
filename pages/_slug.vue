@@ -5,21 +5,23 @@
 <section class="page-content container">
     <article class="fiche">
         <header class="article-header">
-            <breadcrumb :fiche="fiche" />
             <h1 class="article-title">
                 {{ fiche.Titel }}
             </h1>
+            <breadcrumb :fiche="fiche" />
             <div class="article-download">
-                <a class="icon is-small download-button" @click.prevent="download()">
-                    <i class="fas fa-download"></i>
+                <a class="download-button" @click.prevent="download()">
+                    <span class="icon is-small">
+                      <i class="fas fa-download"></i>
+                    </span>
                     <span class="download-button-text">Download deze fiche</span>
                 </a>
             </div>
         </header>
         <section class="article-content">
-            <fiche-content :fiche="fiche" :color="textColor"></fiche-content>
-            <pagination :slug="fiche.Slug"></pagination> 
+            <fiche-content :fiche="fiche" :color="textColor"></fiche-content> 
         </section>
+        <pagination :slug="fiche.Slug"></pagination>
     </article>
 </section>
 <!-- <button @click="isActive = !isActive" class="modal-close is-large" aria-label="close"></button>
@@ -56,7 +58,7 @@ export default {
         return this.$store.getters.getClassSlug(this.fiche.Kernthemas.display)
       },
       textColor () {
-        return 'tekst-' + this.backgroundColor
+        return 'bg-' + this.backgroundColor
       },
       themas () {
         return this.$store.getters.getKernThemas
