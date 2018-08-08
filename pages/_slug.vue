@@ -68,7 +68,8 @@ export default {
   methods: {
         ...mapActions([
             'setActiveSubcat',
-            'setActiveThema'
+            'setActiveThema',
+            'setActiveFiche'
         ]),
         addListeners () {
             this._links = this.$el.getElementsByTagName('a')
@@ -100,6 +101,7 @@ export default {
       this.addListeners()
       this.setActiveSubcat(this.fiche.Subcategorie[0].display.trim())
       this.setActiveThema(this.fiche.Kernthemas.display.trim())
+      this.setActiveFiche(this.fiche.Slug)
   }
 }
 </script>

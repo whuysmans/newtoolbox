@@ -20,7 +20,8 @@ const createStore = () => {
             sortedFiches: [],
             searchIsActive: false,
             searchWord: '',
-            showFilter: false
+            showFilter: false,
+            activeFiche: ''
         },
         mutations: {
             LOAD_INFO_FICHES (state, fiches) {
@@ -76,6 +77,9 @@ const createStore = () => {
             },
             SET_SHOW_FILTER (state, bool) {
                 state.showFilter = bool
+            },
+            SET_ACTIVE_FICHE (state, fiche) {
+                state.activeFiche = fiche
             }
         },
         actions: {
@@ -113,6 +117,9 @@ const createStore = () => {
             },
             setShowFilter (context, bool) {
                 context.commit('SET_SHOW_FILTER', bool)
+            },
+            setActiveFiche (context, fiche) {
+                context.commit('SET_ACTIVE_FICHE', fiche)
             }
         },
         getters: {
@@ -183,7 +190,8 @@ const createStore = () => {
                         let fiches = state.infofiches.filter((fiche) => {
                             return fiche.Subcategorie[0].display.trim() === subcat.display.trim()
                         }).map((result) => {
-                            return { 'name': result.Slug }
+                            return { 'name': result.Slug,
+                                     'title': result.Titel }
                         })
                         sub['name'] = subcat.display
                         sub['children'] = fiches
@@ -217,6 +225,9 @@ const createStore = () => {
             },
             getShowFilter (state) {
                 return state.showFilter
+            },
+            getActiveFiche (state) {
+                return state.activeFiche
             }
         }
     })

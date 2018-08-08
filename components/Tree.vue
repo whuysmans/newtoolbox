@@ -22,6 +22,7 @@ export default {
     mounted () {
         let activeSubcat = this.getActiveSubcat() 
         let activeThema = this.getActiveThema()
+        let activeFiche = this.getActiveFiche()
         let svg = d3.select("svg")
         let width = +svg.attr("width")
         let height = +svg.attr("height")
@@ -95,13 +96,13 @@ export default {
                     case 0:
                     navLink += `${d.data.name}`
                     case 1:
-                    navLink += `<a href="/?thema=${d.data.name}" data-show-filter="true">${d.data.name}</a>`
+                    navLink += `<a href="/?thema=${d.data.name}" data-link-type="thema" data-show-filter="true">${d.data.name}</a>`
                     break
                     case 2:
-                    navLink += `<a href="/?thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}" data-show-filter="true">${d.data.name}</a>`
+                    navLink += `<a href="/?thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}" data-link-type="subcat" data-show-filter="true">${d.data.name}</a>`
                     break
                     default:
-                    navLink += `<a href="/${d.data.name}">${d.data.name}</a>`
+                    navLink += `<a href="/${d.data.name}" data-link-type="fiche">${d.data.title}</a>`
                 }
                 return navLink
             })
@@ -126,22 +127,30 @@ export default {
             }
         }
 
-        function mark (startNode) {
-            let themaNode = startNode.parent
-            let themaLink = themaNode.links().filter((link) => {
-                return link.target.id === startNode.id 
-            })[0]
-            let rootLink = root.links().filter((link) => {
-                return link.target.id === themaNode.id
-            })[0]
-            visitNode(themaNode, true)
-            visitLink(themaLink, true)
-            visitLink(rootLink, true)
-            visitNode(root, true)
-            walk(startNode, true)
+        function markPath (startNode) {
+            visitNode(startNode)
+            if (startNode.data.name.trim() === activeThema.trim() || 
+                startNode.data.name.trim() === activeSubcat.trim()) {
+                    walk(startNode, true)
+                }
+            markPreviousPath(startNode)
+        }
+
+        function markPreviousPath (startNode) {
+            let current = startNode
+            while (current.parent) {
+                let parentNode = current.parent
+                let parentLink = parentNode.links().filter((link) => {
+                    return link.target.id = current.id
+                })[0]
+                visitNode(parentNode, true)
+                visitLink(parentLink, true)
+                current = parentNode
+            }
         }
 
         function visitNode (element, mode) {
+            let el = g.select("#node-" + element.id)
             g.select("#node-" + element.id)
                 .classed("sub-tree", mode)
         }
@@ -159,17 +168,27 @@ export default {
             walk(d, false)
         }
 
-        function getActiveNode () {
-            let result = node.filter((d) => {
-                return d.data.name === activeSubcat 
-            })
-            mark(result.data()[0])
+        function getDeepestActiveNode () {
+            let result = null
+            if (activeFiche !== '') {
+                result = node.filter((d) => {
+                    return d.data.name === activeFiche
+                })
+            } else if (activeSubcat !== '') {
+                result = node.filter((d) => {
+                    return d.data.name === activeSubcat
+                })
+            } else if (activeThema !== '') {
+                result = node.filter((d) => {
+                    return d.data.name === activeThema
+                })
+            }
+            console.log("result", result.data()[0])
+            markPath(result.data()[0])
         }
 
         this.addListeners()
-        if (this.getActiveSubcat() !== '') {
-             getActiveNode ()
-        }
+        getDeepestActiveNode()
        
     },
     beforeDestroy() {
@@ -196,14 +215,26 @@ export default {
         },
         ...mapGetters([
             'getActiveSubcat',
-            'getActiveThema'
+            'getActiveThema',
+            'getActiveFiche'
         ]),
         ...mapActions([
-          'setShowFilter'
+          'setShowFilter',
+          'setActiveThema',
+          'setActiveSubcat',
+          'setActiveFiche'
         ]),
         navigate (event) {
             const href = event.target.getAttribute('href')
             const dataShowFilter = event.target.getAttribute('data-show-filter')
+            const type = event.target.getAttribute('data-link-type')
+            if (type === 'subcat' && event.target.innterHTML !== this.getActiveSubcat()) {
+                this.setActiveFiche('')
+            }
+            if (type === 'thema' && event.target.innterHTML !== this.getActiveThema()) {
+                this.setActiveFiche('')
+                this.setActiveSubcat('')
+            }
             if (href) {
                 if (dataShowFilter) {
                     this.setShowFilter(true)
