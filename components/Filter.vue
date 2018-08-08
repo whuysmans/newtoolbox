@@ -56,7 +56,8 @@ export default {
      ...mapActions([
          'setActiveSubcat',
          'setActiveThema',
-         'setShowFilter'
+         'setShowFilter',
+         'setActiveFiche'
      ]),
      ...mapGetters([
          'getActiveThema',
@@ -70,6 +71,7 @@ export default {
         } else {
             this.setActiveThema(name.trim())
             this.setActiveSubcat('')
+            this.setActiveFiche('')
             // this.setShowFilter(true)
         }
      }

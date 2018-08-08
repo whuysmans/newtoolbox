@@ -17,17 +17,22 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
     props: ['data'],
     watch: {
-     'data': 'dataUpdated'   
+     'data': 'dataUpdated',
+     'activeThema': function () {
+         console.log("yep")
+        this.getDeepestActiveNode()
+     }
     },
     mounted () {
-        let activeSubcat = this.getActiveSubcat() 
-        let activeThema = this.getActiveThema()
-        let activeFiche = this.getActiveFiche()
+        // let activeSubcat = this.getActiveSubcat() 
+        // let activeThema = this.getActiveThema()
+        // let activeFiche = this.getActiveFiche()
         let svg = d3.select("svg")
         let width = +svg.attr("width")
         let height = +svg.attr("height")
         let g = svg.append("g").attr("transform", "translate(50,0)");
         let i = 0
+        const that = this
 
         let tree = d3.tree()
             .size([height, width - 240]);
@@ -129,8 +134,8 @@ export default {
 
         function markPath (startNode) {
             visitNode(startNode)
-            if (startNode.data.name.trim() === activeThema.trim() || 
-                startNode.data.name.trim() === activeSubcat.trim()) {
+            if (startNode.data.name.trim() === that.activeThema.trim() || 
+                startNode.data.name.trim() === that.activeSubcat.trim()) {
                     walk(startNode, true)
                 }
             markPreviousPath(startNode)
@@ -170,17 +175,17 @@ export default {
 
         function getDeepestActiveNode () {
             let result = null
-            if (activeFiche !== '') {
+            if (that.activeFiche !== '') {
                 result = node.filter((d) => {
-                    return d.data.name === activeFiche
+                    return d.data.name === that.activeFiche
                 })
-            } else if (activeSubcat !== '') {
+            } else if (that.activeSubcat !== '') {
                 result = node.filter((d) => {
-                    return d.data.name === activeSubcat
+                    return d.data.name === that.activeSubcat
                 })
-            } else if (activeThema !== '') {
+            } else if (that.activeThema !== '') {
                 result = node.filter((d) => {
-                    return d.data.name === activeThema
+                    return d.data.name === that.activeThema
                 })
             }
             if (result && result.data) {
@@ -249,7 +254,15 @@ export default {
         }
     },
     computed: {
-        
+        activeFiche () {
+            return this.getActiveFiche()
+        },
+        activeSubcat () {
+            return this.getActiveSubcat()
+        },
+        activeThema () {
+            return this.getActiveThema()
+        }
     }
     
 }
