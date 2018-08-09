@@ -1,4 +1,18 @@
+const axios = require('axios')
+
 module.exports = {
+
+  generate: {
+    routes: function () {
+      return axios.get('https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/infofiches'
+        .then((res) => {
+          return res.data.entries.map((fiche) => {
+            return '/' + fiche.Slug
+          })
+        })
+    )
+    }
+  },
   /*
   ** Headers of the page
   */
