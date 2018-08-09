@@ -72,6 +72,7 @@ export default {
             this.setActiveThema(name.trim())
             this.setActiveSubcat('')
             this.setActiveFiche('')
+            this.$router.push('/')
             // this.setShowFilter(true)
         }
      },

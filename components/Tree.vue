@@ -18,7 +18,6 @@ export default {
      'data': 'dataUpdated',
      'activeThema': function () {
          console.log("yep")
-        this.getDeepestActiveNode()
      }
     },
     mounted () {
@@ -57,6 +56,7 @@ export default {
             .append("g")
                 .attr("class", (d) => {
                     let classString = "node " + (d.children ? " node--internal" : "node--leaf")
+                    console.log(d.data)
                     switch (d.depth) {
                         case 1:
                         classString += " " + d.data.slug
@@ -131,7 +131,7 @@ export default {
         }
 
         function markPath (startNode) {
-            visitNode(startNode)
+            visitNode(startNode, true)
             if (startNode.data.name.trim() === that.activeThema.trim() || 
                 startNode.data.name.trim() === that.activeSubcat.trim()) {
                     walk(startNode, true)

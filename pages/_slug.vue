@@ -92,6 +92,9 @@ export default {
                 event.preventDefault()
                 this.$router.push(href)
             }
+        },
+        download () {
+            window.print()
         }
   },
   watch: {
