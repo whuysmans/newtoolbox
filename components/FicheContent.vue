@@ -57,9 +57,18 @@ export default {
                 return str
             } else {
                 return str.replace(searchWord, (match, a, b) => {
-                    return '<span class="highlight">' + match + '</span>'
+                    return this.isInLink(str, match) ? match : '<span class="highlight">' + match + '</span>'
                 })
             }
+        },
+        isInLink (s, match) {
+            let arr = s.split(' ')
+            return arr.filter((part) => {
+                return part.includes(match)
+            }).filter((matchedPart) => {
+                console.log(matchedPart)
+                return matchedPart.includes('"')
+            }).length > 0
         }
     }
 }

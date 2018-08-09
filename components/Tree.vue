@@ -56,7 +56,6 @@ export default {
             .append("g")
                 .attr("class", (d) => {
                     let classString = "node " + (d.children ? " node--internal" : "node--leaf")
-                    console.log(d.data)
                     switch (d.depth) {
                         case 1:
                         classString += " " + d.data.slug
@@ -97,7 +96,8 @@ export default {
                 let navLink = ''
                 switch (d.depth) {
                     case 0:
-                    navLink += ``
+                    navLink += 'Toolbox'
+                    break
                     case 1:
                     navLink += `<a href="/?thema=${d.data.name}" data-link-type="thema" data-show-filter="true">${d.data.name}</a>`
                     break
