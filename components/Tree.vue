@@ -153,7 +153,6 @@ export default {
         }
 
         function visitNode (element, mode) {
-            let el = g.select("#node-" + element.id)
             g.select("#node-" + element.id)
                 .classed("sub-tree", mode)
         }
