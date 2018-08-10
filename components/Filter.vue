@@ -9,28 +9,26 @@
           </nuxt-link>
       </li>
     </ul>
-    <div class="thema-tabs">
-        <ul>
-          <li v-for="thema in themas" 
-              :key="thema._id" 
-              :class="'tab-' + thema.Slug + ' ' + [(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
-              @click="handleThemaClick">
-              <a>
-                  <span class="icon is-small">
-                      <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
-                  </span>
-                  <span>{{ thema.Titel }}</span>
-              </a>
-          </li>
-        </ul>
-    </div>
+    <ul class="thema-tabs">
+      <li v-for="thema in themas" 
+          :key="thema._id" 
+          :class="'tab-' + thema.Slug + ' ' + [(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
+          @click="handleThemaClick">
+          <a>
+              <span class="icon is-small">
+                  <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
+              </span>
+              <span>{{ thema.Titel }}</span>
+          </a>
+      </li>
+    </ul>
     <ul>
       <li class="tab-sitemap">
         <nuxt-link to="/overzicht" @click.native="setShowFilter(false)">
           <span class="icon is-small">
-              <i class="fas fa-tree"></i>
+              <i class="fas fa-sitemap"></i>
           </span>
-          <span>Sitemap</span>
+          <span>Overzicht</span>
         </nuxt-link>
       </li>
     </ul>
