@@ -53,16 +53,23 @@
   position: relative;
   z-index: 20;
   & > .kernthema {
-    padding: 2rem 2em;
-    // background-color: lighten($primary, 60);
+    padding: 1rem 1rem;
+    @include from($tablet) {
+      padding: 2rem 2rem;
+      // background-color: lighten($primary, 60);
+    }
   }
 }
-
-
 
 .page-content {
   margin-top: 3rem;
   margin-bottom: 4rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  @include from($tablet) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 

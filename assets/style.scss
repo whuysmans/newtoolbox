@@ -27,6 +27,7 @@ $white: #ffffff;
 
 
 // Update Bulma's global variables
+$column-gap: 1rem;
 $family-sans-serif: 'Open Sans', sans-serif;
 $grey-dark: $dark-gray;
 $grey-light: $light-gray;
@@ -53,7 +54,7 @@ $modal-content-width: 1050px;
 @import "../node_modules/bulma/sass/elements/icon.sass";
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/notification.sass";
-// @import "../node_modules/bulma/sass/elements/form.sass";
+@import "../node_modules/bulma/sass/elements/form.sass";
 // @import "../node_modules/bulma/sass/elements/title.sass";
 
 @import "../node_modules/bulma/sass/components/breadcrumb.sass";
