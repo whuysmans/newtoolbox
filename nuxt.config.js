@@ -14,8 +14,20 @@ module.exports = {
   },
 
   modules: [
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/sitemap'
   ],
+
+  sitemap: {
+    routes () {
+      return axios.get('https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/infofiches')
+      .then((res) => {
+        return res.data.entries.map((fiche) =>  {
+          return '/' + fiche.Slug
+        })
+      })
+    }
+  },
 
   /*
   ** Headers of the page
