@@ -47,17 +47,13 @@ module.exports = {
   },
 
   css: [
-    // { src: 'bulma/bulma.sass', lang: 'sass'},
     { src: '@fortawesome/fontawesome-free-webfonts/scss/fontawesome.scss', lang: 'scss'},
     { src: '@fortawesome/fontawesome-free-webfonts/scss/fa-regular.scss', lang: 'scss'},
     { src: '@fortawesome/fontawesome-free-webfonts/scss/fa-solid.scss', lang: 'scss'},
-    // { src: 'assets/main.css'}
     { src: 'assets/style.scss', lang: 'scss'}
   ],
 
   env: {
-    //baseUrl: 'http://localhost:7777/wp-json/toolbox/v1/',
-    tokenUrl: 'http://localhost:7777/wp-json/jwt-auth/v1/token',
     baseUrl: 'https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/'
   },
 
