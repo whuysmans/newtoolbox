@@ -19,6 +19,7 @@ module.exports = {
   ],
 
   sitemap: {
+    generate: true,
     routes () {
       return axios.get('https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/infofiches')
       .then((res) => {
