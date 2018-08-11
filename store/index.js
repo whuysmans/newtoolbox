@@ -161,7 +161,7 @@ const createStore = () => {
             getInfoFicheIndex (state) {
                 return (name) => {
                     return state.sortedFiches.indexOf(state.sortedFiches.filter((fiche) => {
-                        return fiche.Slug.toLowerCase() === name
+                        return fiche.Slug.toLowerCase() === name.toLowerCase()
                     })[0])
                 }
             },
