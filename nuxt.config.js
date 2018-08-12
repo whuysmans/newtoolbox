@@ -16,10 +16,12 @@ module.exports = {
   modules: [
     '@nuxtjs/pwa',
     '@nuxtjs/sitemap',
-    '@nuxtjs/google-analytics', {
-      id: 'UA-123790758-1'
-    }
+    '@nuxtjs/google-analytics'
   ],
+
+  'google-analytics': {
+    id: 'UA-123790758-1'
+  },
 
   sitemap: {
     generate: true,
