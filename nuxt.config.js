@@ -15,7 +15,10 @@ module.exports = {
 
   modules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/google-analytics', {
+      id: 'UA-123790758-1'
+    }
   ],
 
   sitemap: {
