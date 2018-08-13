@@ -34,7 +34,8 @@ export default {
        ...mapActions([
          'setActiveSubcat',
          'setActiveThema',
-         'setShowFilter'
+         'setShowFilter',
+         'setActiveFiche'
        ]),
        ...mapGetters([
          'getRelatedSubcats'
@@ -42,17 +43,20 @@ export default {
        handleThemaClick (event) {
            this.setActiveThema(event.target.outerText.trim())
            this.setActiveSubcat('')
+           this.setActiveFiche('')
            this.setShowFilter(true)
        },
        handleSubcatClick (event) {
            this.setActiveThema(this.fiche.Kernthemas.display.trim())
            this.setActiveSubcat(event.target.outerText.trim())
+           this.setActiveFiche('')
            this.setShowFilter(true)
        },
        handleClearFilterClick (event) {
            this.setShowFilter(false)
            this.setActiveThema('')
            this.setActiveSubcat('')
+           this.setActiveFiche('')
        }
    }
 }
