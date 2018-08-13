@@ -178,7 +178,7 @@ const createStore = () => {
             },
             getTreeView (state) {
                 let tree = {}
-                tree['name'] = ''
+                tree['name'] = 'toolbox'
                 tree['children'] = []
                 state.kernthemas.map((thema) => {
                     let currentObj = {}
@@ -199,7 +199,6 @@ const createStore = () => {
                     })
                     tree['children'].push(currentObj)
                 })
-                tree['name'] = 'toolbox'
                 return tree
             },
             getSearchData (state) {

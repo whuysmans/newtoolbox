@@ -15,10 +15,7 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
     props: ['data'],
     watch: {
-     'data': 'dataUpdated',
-     'activeThema': function () {
-         console.log("yep")
-     }
+     'data': 'dataUpdated'
     },
     mounted () {
         // let activeSubcat = this.getActiveSubcat() 
@@ -174,7 +171,8 @@ export default {
             let result = null
             if (that.activeFiche !== '') {
                 result = node.filter((d) => {
-                    return d.data.name === that.activeFiche
+                    return (d.depth === 0) ? false : 
+                        (d.data.name === that.activeFiche)
                 })
             } else if (that.activeSubcat !== '') {
                 result = node.filter((d) => {
