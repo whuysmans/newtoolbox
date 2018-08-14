@@ -9,8 +9,14 @@
   background-color: $primary;
 }
 
+.page-content-wrapper {
+  border-top: 1px solid rgba($primary, .6);
+  box-shadow: inset 0px 11px 8px -10px rgba($primary, .2);
+}
 
-
+.article-header {
+  margin-bottom: $paragraph-margin-bottom*2.5;
+}
 
 // ----------------------------------------------------------------------------------
 // ----------------------------------------------------------------------------------
@@ -32,10 +38,25 @@
 }
 
 
+.home .article-meta {
+  margin: 2rem auto;
+  color: $primary; //lighten($body-font-color, 20);
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
 
 // replace images in fiches by smaller ones that grow on hover
-.grow { transition: all .2s ease-in-out; }
-.grow:hover { transform: scale(1.7); }
+// .grow { transition: all .2s ease-in-out; transform-origin: top left; }
+// .grow:hover { transform: scale(1.7); }
+.grow {
+  @include cipt-transition();
+  &:hover {
+    width: 100%;
+  }
+}
+
 
 // fix for tables in fiches
 .fiche-table td {
@@ -59,27 +80,63 @@
 
 
 #filter {
-  .is-active {
-    &.tab-leren-bijsturen a {
-      background-color: lighten($pink, 5);
-    }
-    &.tab-leren-zichtbaar-maken a {
-      background-color: lighten($azure, 30);
-    }
-    &.tab-leren-in-een-veilig-en-stimulerend-leerklimaat a {
-      background-color: lighten($aquamarine, 10);
+  .tabs ul {
+    border-bottom-color: rgba($primary, .6);
+    @include from($tablet) {
+      border-bottom-width: 0;
     }
   }
+  i {
+    @include cipt-transition();
+  }
+
+  .is-active a {
+    border-bottom-color: transparent;
+  }
+  .is-active.tab-leren-bijsturen a,
+  .tab-leren-bijsturen a:hover,
+  .tab-leren-bijsturen a:focus {
+    border-color: $pink;
+    border-bottom-color: $pink;
+    background-color: $pink; //lighten($pink, 5);
+    //background-color: lighten($pink, 5);
+    i {
+      color: $primary;
+    }
+  }
+  .is-active.tab-leren-zichtbaar-maken a,
+  .tab-leren-zichtbaar-maken a:hover,
+  .tab-leren-zichtbaar-maken a:focus {
+    border-color: $azure;
+    border-bottom-color: $azure;
+    background-color: $azure; //lighten($pink, 5);
+    //background-color: lighten($azure, 30);
+    i {
+      color: $primary;
+    }
+  }
+  .is-active.tab-leren-in-een-veilig-en-stimulerend-leerklimaat a,
+  .tab-leren-in-een-veilig-en-stimulerend-leerklimaat a:hover,
+  .tab-leren-in-een-veilig-en-stimulerend-leerklimaat a:focus {
+    border-color: $aquamarine;
+    border-bottom-color: $aquamarine;
+    background-color: $aquamarine; //lighten($pink, 5);
+    //background-color: lighten($aquamarine, 10);
+    i {
+      color: $primary;
+    }
+  }
+
 }
 .kernthemas {
   .leren-bijsturen {
-    background-color: lighten($pink, 5);
+    background-color: $pink; //lighten($pink, 5);
   }
   .leren-zichtbaar-maken {
-    background-color: lighten($azure, 30);
+    background-color: $azure; //lighten($azure, 30);
   }
   .leren-in-een-veilig-en-stimulerend-leerklimaat {
-    background-color: lighten($aquamarine, 10);
+    background-color: $aquamarine; //lighten($aquamarine, 10);
   }
 }
 
@@ -128,22 +185,35 @@
 
 .fiche {
 
-  .article-header {
-    margin-bottom: $paragraph-margin-bottom*2;
-  }
+  // .article-header {
+  //   margin-bottom: $paragraph-margin-bottom*2;
+  // }
 
   .article-section {
     position: relative;
     margin-top: 2rem;
     margin-bottom: 2rem;
+    .article-section-title {
+      padding-left: 2.5rem;
+    }
     .icon {
       position: absolute;
       top: 0;
-      left: -3rem;
+      left: 0; //-3rem;
       border-radius: 50%;
       i {
         color: $white;
       }
+    }
+    @include mobile() {
+      // padding-left: 0;
+      // padding-top: 2.5rem;
+
+      // padding-left: 1.25rem;
+      // .icon {
+      //   width: 1rem;
+      //   height: 1rem;
+      // }
     }
   }
   

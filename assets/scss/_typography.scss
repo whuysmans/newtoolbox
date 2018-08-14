@@ -44,6 +44,9 @@ h1, h2,
 .h1, .h2 {
   margin-bottom: $paragraph-margin-bottom;
 }
+// h1.article-title {
+//   margin-bottom: $paragraph-margin-bottom*2;
+// }
 h3, h4, h5, h6,
 .h3, .h4, .h5, .h6 {
   margin-bottom: $paragraph-margin-bottom/6;
@@ -51,12 +54,21 @@ h3, h4, h5, h6,
 
 h1, .h1 {
   font-size: 2rem;
+  @include mobile() {
+    font-size: 1.5rem;
+  }
 }
 h2, .h2 {
   font-size: 1.625rem;
+  @include mobile() {
+    font-size: 1.25rem;
+  }
 }
 h3, .h3 {
   font-size: 1.375rem;
+  @include mobile() {
+    font-size: 1rem;
+  }
 }
 h4, h5, h6, .h4, .h5, .h6 {
   font-size: 1rem;
@@ -80,6 +92,36 @@ b {
     &:first-child {
       margin-top: 0;
     }
+  }
+
+  ul {
+    list-style: disc outside;
+  }
+  ol {
+    list-style: decimal outside;
+  }
+  ul, ol {
+    margin-left: 3rem;
+    @include mobile() {
+      margin-left: $paragraph-margin-bottom;
+    }
+    padding-left: 1rem;
+    margin-top: $paragraph-margin-bottom/2;
+    li {
+      margin-bottom: .3rem;
+    }
+    ul, ol {
+      margin-left: $paragraph-margin-bottom;
+      margin-top: .3rem;
+      margin-bottom: 0;
+    }
+    ul {
+      list-style-type: '-';
+    }
+  }
+
+  li {
+
   }
 
 }

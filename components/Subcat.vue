@@ -1,8 +1,8 @@
 <template>
     <div :class="{'is-active': isActiveSubcat(subcat.display)}" class="column subcat">
-        <h3 class="subcat-title">
+        <h2 class="subcat-title">
             {{ subcat.display }}
-        </h3>
+        </h2>
         <div class="subcat-description editor-content"
             v-html="subcat.description">
 

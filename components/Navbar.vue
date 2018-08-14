@@ -1,12 +1,32 @@
 <template>
   <nav class="navbar is-dark">
       <div class="navbar-brand">
-          <nuxt-link to="/" class="navbar-item" @click.native="handleClearFilterClick()"><strong>Toolbox Formatieve Evaluatie</strong></nuxt-link>
-          <button class="navbar-burger" :class="{'is-active': isActiveMenu}" @click="isActiveMenu = !isActiveMenu">
-              <span></span>
-              <span></span>
-              <span></span>
-          </button>
+          <nuxt-link to="/" class="navbar-item site-logo" @click.native="handleClearFilterClick()"><strong>Toolbox Formatieve Evaluatie</strong></nuxt-link>
+
+          <div class="mobile-navbar">
+            <ul class="is-hidden-desktop inline-list unstyled-list">
+              <li class="tab-home">
+                  <nuxt-link to="/" @click.native="handleClearFilterClick()">
+                      <span class="icon is-small">
+                          <i class="fas fa-home"></i>
+                      </span>
+                  </nuxt-link>
+              </li>
+              <li class="tab-sitemap">
+                <nuxt-link to="/overzicht" @click.native="setShowFilter(false)">
+                  <span class="icon is-small">
+                      <i class="fas fa-sitemap"></i>
+                  </span>
+                </nuxt-link>
+              </li> 
+            </ul>
+
+            <button class="navbar-burger" :class="{'is-active': isActiveMenu}" @click="isActiveMenu = !isActiveMenu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+          </div>
       </div>
 
             <div class="navbar-item has-dropdown search-box" 
@@ -15,7 +35,7 @@
               <div class="field navbar-item">
                 <div class="control has-icons-left has-icons-right">
                   <input type="text" 
-                    class="input" 
+                    class="input is-small" 
                     v-model="search" 
                     ref="input"
                     placeholder="Zoek in de fiches...">
@@ -27,7 +47,7 @@
                   </span>
                 </div>
               </div>
-              <search-element :results="getResults()" :v-show="getSearchIsActive()" />
+              <search-element :results="getResults()" :v-if="getSearchIsActive()" />
             </div>
 
       <div class="navbar-menu" :class="{'is-active': isActiveMenu}">
@@ -71,7 +91,7 @@ export default {
          'setActiveSubcat'
      ]),
      getResults () {
-        let result = null
+        let result = false
         if (this.search.length > 2) {
             result = Object.values(this.getSearchData()).filter((item) => {
                 return Object.values(item).find((el) => {
@@ -81,6 +101,8 @@ export default {
         }
         if (result) {
             this.setSearchIsActive(true)
+        } else {
+            this.setSearchIsActive(false)
         }
         return result
      },
