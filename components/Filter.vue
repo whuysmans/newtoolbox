@@ -1,6 +1,6 @@
 <template>
   <nav id="main-nav" class="tabs is-boxed">
-    <ul>
+    <ul class="is-hidden-touch">
       <li class="tab-home">
           <nuxt-link to="/" @click.native="handleClearFilterClick()">
               <span class="icon is-small">
@@ -22,7 +22,7 @@
           </a>
       </li>
     </ul>
-    <ul>
+    <ul class="is-hidden-touch">
       <li class="tab-sitemap">
         <nuxt-link to="/overzicht" @click.native="setShowFilter(false)">
           <span class="icon is-small">

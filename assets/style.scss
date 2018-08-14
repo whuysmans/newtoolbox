@@ -13,10 +13,10 @@
 // $beige-light: #D0D1CD;
 // $beige-lighter: #EFF0EB;
 
-$azure: #54cee7; // leren zichtbaar maken
+$azure: #84d6e6; //#54cee7; // leren zichtbaar maken
 $pink: #e9d4d6; // leren bijsturen
 $aquamarine: #c6e0dd; // leren in een veilig en stimulerend leerklimaat
-
+$primary: #2f4f4f; //DarkSlateGray
 
 $light-gray: #f9f9f9; // gray header bg
 $medium-gray: #cacaca;
@@ -25,14 +25,28 @@ $black: #0a0a0a;
 $white: #ffffff;
 
 
+// // new colours!!
+// $azure: #55efc4; //#1abc9c;
+// $pink: #fab1a0;
+// $aquamarine: #81ecec;
+// $primary: DarkSlateGray; //#34495e; //#34495e;
+
+// $light-gray: #ecf0f1; // gray header bg
+// $medium-gray: #95a5a6;
+// $dark-gray: #7f8c8d;
+
+
 
 // Update Bulma's global variables
 $column-gap: 1rem;
 $family-sans-serif: 'Open Sans', sans-serif;
 $grey-dark: $dark-gray;
 $grey-light: $light-gray;
-$primary: #2f4f4f; //DarkSlateGray
-$link: SteelBlue; //$primary;
+$link: $primary; //SteelBlue; //$primary;
+
+$navbar-item-hover-background-color: lighten($primary, 50);
+$navbar-background-color: darken($light-gray, 5); //lighten($primary, 70);
+
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
@@ -41,9 +55,43 @@ $body-background-color: $white;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
+$tabs-boxed-link-radius: 0;
+$tabs-toggle-link-radius: 0;
 
 // components
 $modal-content-width: 1050px;
+
+
+// reset button
+// https://gist.github.com/MoOx/9137295
+button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+  /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  /* Remove excess padding and border in Firefox 4+ */
+  &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+  }
+}
+
+
+
+
+
 
 
 // Import only what you need from Bulma
@@ -55,6 +103,7 @@ $modal-content-width: 1050px;
 @import "../node_modules/bulma/sass/elements/container.sass";
 @import "../node_modules/bulma/sass/elements/notification.sass";
 @import "../node_modules/bulma/sass/elements/form.sass";
+@import "../node_modules/bulma/sass/elements/box.sass";
 // @import "../node_modules/bulma/sass/elements/title.sass";
 
 @import "../node_modules/bulma/sass/components/breadcrumb.sass";
@@ -77,7 +126,8 @@ $normal-weight: 400;
 $medium-weight: 600;
 $bold-weight: 700;
 
-$body-font-color: $dark-gray;
+$body-font-color: $black;
+$text-strong: $body-font-color;
 
 
 $small : 460px;

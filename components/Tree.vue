@@ -4,7 +4,8 @@
             <h1 class="article-title">Sitemap</h1>
         </header>
         <section class="article-content">
-            <svg width="950" height="920"></svg>
+          <div id="sitemap-container" class="svg-container">
+          </div>
         </section>
     </article>
 </template>
@@ -18,13 +19,16 @@ export default {
      'data': 'dataUpdated'
     },
     mounted () {
-        // let activeSubcat = this.getActiveSubcat() 
-        // let activeThema = this.getActiveThema()
-        // let activeFiche = this.getActiveFiche()
-        let svg = d3.select("svg")
-        let width = +svg.attr("width")
-        let height = +svg.attr("height")
+        let svg = d3.select("div#sitemap-container")
+          .append("svg")
+          .attr("preserveAspectRatio", "xMinYMin meet")
+          .attr("viewBox", "0 0 950 920")
+          .classed("svg-content", true);
+
+        let width = 950
+        let height = 920
         let g = svg.append("g").attr("transform", "translate(50,0)");
+
         let i = 0
         const that = this
 

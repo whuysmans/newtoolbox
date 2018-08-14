@@ -4,13 +4,13 @@
       <header class="article-header">
         <h1 class="article-title">Toolbox Formatieve Evaluatie</h1>
       </header>
-      <section class="article-content">
-        <div class="editor-content" v-html="homeInfo.Beschrijving"></div>
-        <div class="article-figure">
+      <section class="article-content columns">
+        <div class="editor-content column" v-html="homeInfo.Beschrijving"></div>
+        <div class="article-figure column">
           <img :src="homeInfo.Afbeelding" />
         </div>
       </section>
-      <aside class="article-meta editor-content" v-html="homeInfo.Extra"></aside>
+      <aside class="article-meta editor-content box" v-html="homeInfo.Extra"></aside>
     </article>
   </section>
 </template>

@@ -9,9 +9,11 @@
     <thema-list :themas="themas" :fiches="fiches"></thema-list>
     
 
-    <transition name="fade">
-      <nuxt/>
-    </transition>
+    <div class="page-content-wrapper">
+      <transition name="fade">
+        <nuxt/>
+      </transition>
+    </div>
 
     <footer class="site-footer">
       credits, how to.
