@@ -127,6 +127,15 @@
     }
   }
 
+  .tabs {
+    @include mobile() {
+      white-space: pre-wrap;
+      ul {
+        flex-shrink: 1;
+      }
+    }
+  }
+
 }
 .kernthemas {
   .leren-bijsturen {
