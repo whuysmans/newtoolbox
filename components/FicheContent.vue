@@ -66,7 +66,6 @@ export default {
             return arr.filter((part) => {
                 return part.includes(match)
             }).filter((matchedPart) => {
-                console.log(matchedPart)
                 return matchedPart.includes('"')
             }).length > 0
         }
