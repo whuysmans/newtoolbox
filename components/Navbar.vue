@@ -21,7 +21,10 @@
               </li> 
             </ul>
 
-            <button class="navbar-burger" :class="{'is-active': isActiveMenu}" @click="isActiveMenu = !isActiveMenu">
+            <button class="navbar-burger" 
+                aria-label="navigation toggle"
+                :class="{'is-active': isActiveMenu}" 
+                @click="isActiveMenu = !isActiveMenu">
                 <span></span>
                 <span></span>
                 <span></span>
