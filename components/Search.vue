@@ -4,7 +4,7 @@
             v-for="result in results" 
             :key="result.slug" 
             class="navbar-item" 
-            :to="result.slug"
+            :to="'/' + result.slug"
             @click.native="setShowFilter(false)">
             {{ result.slug }}
         </nuxt-link>
