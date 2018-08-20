@@ -12,8 +12,7 @@ body {
   // font-size: 100%; //16px;
   font-size: 93.75%; //15px;
 
-
-  font-family: arial, helvetica, "helvetica neue", verdana, sans-serif; 
+  font-family: 'Open Sans', sans-serif;
   font-weight: $normal-weight;
   color: $body-font-color;
 
@@ -34,23 +33,16 @@ h3, h4, h5, h6,
 .h3, .h4, .h5, .h6,
 .title,
 .subtitle {
-  // font-family: 'Merriweather', serif;
-  // font-weight: 400;
-  // font-family: 'Rambla', sans-serif;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
+  font-family: 'Merriweather', serif;
+  font-weight: 400;
 
   color: $primary;
   line-height: 1.2;
 }
 
-h1,
-.h1 {
+h1, h2,
+.h1, .h2 {
   margin-bottom: $paragraph-margin-bottom;
-}
-h2,
-.h2 {
-  margin-bottom: $paragraph-margin-bottom/2;
 }
 // h1.article-title {
 //   margin-bottom: $paragraph-margin-bottom*2;
@@ -61,63 +53,26 @@ h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 2rem;
-  // @include mobile() {
-  //   font-size: 2rem;
-  // }
+  font-size: 3rem;
+  @include mobile() {
+    font-size: 2rem;
+  }
 }
 h2, .h2 {
-  font-size: 1.5rem;
-  // @include mobile() {
-  //   font-size: 1.125rem;
-  // }
+  font-size: 1.625rem;
+  @include mobile() {
+    font-size: 1.25rem;
+  }
 }
 h3, .h3 {
-  font-size: 1.25rem;
-  // @include mobile() {
-  //   font-size: 1rem;
-  // }
+  font-size: 1.375rem;
+  @include mobile() {
+    font-size: 1rem;
+  }
 }
 h4, h5, h6, .h4, .h5, .h6 {
   font-size: 1rem;
 }
-
-.site-header {
-  text-transform: uppercase;
-  font-size: .8rem;
-  .search-box {
-    text-transform: none;
-  }
-  .site-logo {
-    font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1rem;
-  }
-  .navbar-end {
-    font-family: 'Roboto Condensed', sans-serif;
-  }
-}
-#filter .tabs {
-  font-size: .8rem !important;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 400;
-}
-
-
-.subcat-link,
-.article-meta,
-.search-box,
-.sitemap .node text,
-.breadcrumb,
-.download-button,
-.article-navigation,
-button,
-input,
-select,
-textarea {
-  font-family: 'Roboto Condensed', sans-serif;
-}
-
-
 
 
 strong,

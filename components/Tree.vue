@@ -175,7 +175,7 @@ export default {
             let result = null
             if (that.activeFiche !== '') {
                 result = node.filter((d) => {
-                    return (d.depth === 0) ? false : 
+                    return (d.depth !== 3) ? false : 
                         (d.data.name === that.activeFiche)
                 })
             } else if (that.activeSubcat !== '') {
@@ -188,6 +188,8 @@ export default {
                 })
             }
             if (result && result.data) {
+                g.select("#node-" + result.data()[0].id)
+                  .classed("you-are-here", true)
                 markPath(result.data()[0])
             }
         }

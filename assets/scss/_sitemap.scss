@@ -123,7 +123,18 @@ path.sub-tree {
   stroke: $primary;
   stroke-opacity: 1;
 }
-.sub-tree circle,
-.sub-tree text {
+.sub-tree circle {
   fill: $primary !important;
+  // fill: #FF0000 !important;
 }
+
+.you-are-here circle {
+  // fill: $primary !important;
+  // fill: #00FF00 !important;
+  transform: scale(1.25);
+}
+.you-are-here text {
+  font-size: 120%;
+  font-weight: 700;
+}
+

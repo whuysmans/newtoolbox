@@ -13,7 +13,7 @@
       <li v-for="thema in themas" 
           :key="thema._id" 
           :class="'tab-' + thema.Slug + ' ' + [(getActiveThema() === thema.Titel || getActiveThema() === thema.Slug) ? 'is-active' : '']"
-          @click="handleThemaClick">
+          @click.prevent="handleThemaClick(thema.Titel)">
           <a>
               <span class="icon is-small">
                   <i :class="['fas ' + thema.Icoon, 'tekst-' + thema.Slug]"></i>
@@ -61,13 +61,14 @@ export default {
          'getActiveThema',
          'getActiveSubcat'
      ]),
-     handleThemaClick (event) {
-        let name = event.target.outerText
+     handleThemaClick (titel) {
+        // console.log(event)
+        // let name = event.target.outerText
         this.setShowFilter(true)
-        if (this.getActiveThema() === name.trim()) {
+        if (this.getActiveThema() === titel.trim()) {
             // this.setActiveThema('')
         } else {
-            this.setActiveThema(name.trim())
+            this.setActiveThema(titel.trim())
             this.setActiveSubcat('')
             this.setActiveFiche('')
             this.$router.push('/')
