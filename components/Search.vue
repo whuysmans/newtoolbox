@@ -6,7 +6,7 @@
             class="navbar-item" 
             :to="'/' + result.slug"
             @click.native="setShowFilter(false)">
-            {{ result.slug }}
+            {{ result.titel }}
         </nuxt-link>
     </div>
 </template>

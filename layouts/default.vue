@@ -16,7 +16,6 @@
     </div>
 
     <footer class="site-footer">
-      credits, how to.
     </footer><!-- end site-footer -->
   </div><!-- end site-wrapper -->
 </template>

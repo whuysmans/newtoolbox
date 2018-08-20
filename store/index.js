@@ -205,6 +205,7 @@ const createStore = () => {
                 let json = {}
                 state.infofiches.map((fiche) => {
                     json[fiche.Titel] = {
+                        'titel': fiche.Titel,
                         'beschrijving': fiche.Beschrijving,
                         'werking': fiche.Werking,
                         'tips': fiche.Tips,

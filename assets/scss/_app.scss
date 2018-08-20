@@ -93,6 +93,7 @@
   .is-active a {
     border-bottom-color: transparent;
   }
+
   .is-active.tab-leren-bijsturen a,
   .tab-leren-bijsturen a:hover,
   .tab-leren-bijsturen a:focus {
@@ -138,15 +139,18 @@
 
 }
 .kernthemas {
-  .leren-bijsturen {
-    background-color: $pink; //lighten($pink, 5);
+  .kernthema {
+    background-color: #f6f6f6;
   }
-  .leren-zichtbaar-maken {
-    background-color: $azure; //lighten($azure, 30);
-  }
-  .leren-in-een-veilig-en-stimulerend-leerklimaat {
-    background-color: $aquamarine; //lighten($aquamarine, 10);
-  }
+  // .leren-bijsturen {
+  //   background-color: $pink; //lighten($pink, 5);
+  // }
+  // .leren-zichtbaar-maken {
+  //   background-color: $azure; //lighten($azure, 30);
+  // }
+  // .leren-in-een-veilig-en-stimulerend-leerklimaat {
+  //   background-color: $aquamarine; //lighten($aquamarine, 10);
+  // }
 }
 
 .kernthemas {
@@ -207,7 +211,7 @@
     }
     .icon {
       position: absolute;
-      top: 0;
+      top: -.125rem;
       left: 0; //-3rem;
       border-radius: 50%;
       i {
