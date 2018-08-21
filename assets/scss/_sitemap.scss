@@ -43,6 +43,10 @@
 
 .node text {
     font: 13px sans-serif;
+    text-transform: lowercase;
+}
+#node-1.node text {
+  text-transform: none;
 }
 
 /* .node--internal circle {
