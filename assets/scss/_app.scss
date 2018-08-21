@@ -177,7 +177,7 @@
   .subcat {
     @include cipt-transition();
     &.is-active {
-      background-color: rgba( $white, .5 );
+      background-color: rgba( $white, .8 );
     }
   }
   
