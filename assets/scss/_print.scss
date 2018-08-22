@@ -1,0 +1,41 @@
+
+@media print {
+
+  body, * {
+    // font-size: 16px;
+    color: #333333 !important;
+  }
+
+  
+
+  .navbar.is-dark,
+  footer.site-footer {
+    background-color: transparent;
+  }
+  .site-logo {
+    padding: 1rem;
+  }
+
+  .navbar,
+  .navbar-brand, .navbar-tabs {
+    min-height: auto;
+  }
+  .page-content-wrapper {
+    border-top: none;
+    box-shadow: none;
+  }
+  .editor-content {
+    max-width: 100%;
+  }
+
+
+  .mobile-navbar,
+  .search-box,
+  .navbar-menu,
+  #filter,
+  .kernthemas .subcat-link,
+  .article-navigation {
+    display: none;
+  }
+
+}

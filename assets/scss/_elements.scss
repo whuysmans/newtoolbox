@@ -184,6 +184,20 @@ a, a:hover, a:visited, a:active {
   //     }
   //   }
   // }
+  @include mobile() {
+    li {
+      width: 100%;
+      & + li {
+        padding-left: .8rem;
+        & + li {
+          padding-left: 1.2rem;
+          & + li {
+            padding-left: 1.6rem;
+          }
+        }
+      }
+    }
+  }
 }
 
 nav.article-navigation {
