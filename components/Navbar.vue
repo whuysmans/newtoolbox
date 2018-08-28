@@ -97,9 +97,9 @@ export default {
         let result = false
         if (this.search.length > 2) {
             result = Object.values(this.getSearchData()).filter((item) => {
-                return Object.values(item).find((el) => {
-                    return el.includes(this.search)
-                })
+                return Object.values(item).filter((el) => {
+                    return el.indexOf(this.search) >= 0
+                })[0]
             })
         }
         if (result) {

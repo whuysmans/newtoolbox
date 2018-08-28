@@ -64,9 +64,9 @@ export default {
         isInLink (s, match) {
             let arr = s.split(' ')
             return arr.filter((part) => {
-                return part.includes(match)
+                return part.indexOf(match) >= 0
             }).filter((matchedPart) => {
-                return matchedPart.includes('"')
+                return matchedPart.indexOf('"') >= 0
             }).length > 0
         }
     }
