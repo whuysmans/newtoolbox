@@ -19,11 +19,17 @@ a, a:hover, a:visited, a:active {
 }
 
 
-.editor-content {
+.editor-content,
+.subcat ul,
+.breadcrumb,
+.article-download {
   a {
+    color: #006598;
+    text-decoration: underline;
     &:hover,
     &:focus {
-      text-decoration: underline;
+      // text-decoration: underline;
+      color: darken(#006598, 10%);
     }
   }
 }

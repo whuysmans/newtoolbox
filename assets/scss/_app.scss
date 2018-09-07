@@ -180,7 +180,16 @@
       background-color: rgba( $white, .8 );
     }
   }
-  
+
+  .leren-bijsturen .subcat.is-active {
+    background-color: $pink;
+  }
+  .leren-zichtbaar-maken .subcat.is-active {
+    background-color: $azure;
+  }
+  .leren-in-een-veilig-en-stimulerend-leerklimaat .subcat.is-active {
+    background-color: $aquamarine;
+  }
 
 
 
