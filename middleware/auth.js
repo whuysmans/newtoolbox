@@ -1,13 +1,12 @@
 export default function (context) {
     if (process.server) {
-        if (!context.req) {
-            return context.redirect('/login')
-        }
-        else if (context.req.url !== '/login') {
+        if (context.req && context.req.url !== '/login') {
             if(!context.req.headers.cookie) {
                 return context.redirect('/login')
             }
+            console.log(context.req.headers)
             const jwtCookie = context.req.headers.cookie.split(';').find( c => c.trim().startsWith('token=') )
+            console.log(jwtCookie)
             if(!jwtCookie) {
                 return context.redirect('/login')
             }
