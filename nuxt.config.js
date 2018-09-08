@@ -4,7 +4,7 @@ module.exports = {
 
   generate: {
     routes: function () {
-      return axios.get('https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/infofiches')
+      return axios.get('https://cipt.be/toolbox/wp-json/toolbox/v1/infofiches')
         .then((res) => {
           return res.data.entries.map((fiche) => {
             return '/' + fiche.Slug
@@ -26,7 +26,7 @@ module.exports = {
   sitemap: {
     generate: true,
     routes () {
-      return axios.get('https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/infofiches')
+      return axios.get('https://cipt.be/toolbox/wp-json/toolbox/v1/infofiches')
       .then((res) => {
         return res.data.entries.map((fiche) =>  {
           return '/' + fiche.Slug
@@ -39,7 +39,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'stagingtoolbox2',
+    title: 'formatief evalueren',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -59,7 +59,7 @@ module.exports = {
   ],
 
   env: {
-    baseUrl: 'https://staging3.cipt.be/toolbox/wp-json/toolbox/v1/'
+    baseUrl: 'https://cipt.be/toolbox/wp-json/toolbox/v1/'
   },
 
   router: {

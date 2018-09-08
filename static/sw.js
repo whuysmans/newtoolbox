@@ -1,7 +1,7 @@
 importScripts('/_nuxt/workbox.3de3418b.js')
 
 const workboxSW = new self.WorkboxSW({
-  "cacheId": "stagingtoolbox2",
+  "cacheId": "toolbox",
   "clientsClaim": true,
   "directoryIndex": "/"
 })
