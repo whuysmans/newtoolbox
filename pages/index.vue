@@ -30,6 +30,9 @@ export default {
      ])
   },
   created () {
+    if (!this.$store.getters.isAuthenticated) {
+      this.$router.push('/')
+    }
     if (this.$route.query) {
       if (this.$route.query.thema) {
         this.$store.dispatch('setActiveThema', this.$route.query.thema)

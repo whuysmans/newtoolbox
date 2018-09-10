@@ -21,7 +21,8 @@ const createStore = () => {
             searchIsActive: false,
             searchWord: '',
             showFilter: false,
-            activeFiche: ''
+            activeFiche: '',
+            authenticated: false
         },
         mutations: {
             LOAD_INFO_FICHES (state, fiches) {
@@ -52,6 +53,7 @@ const createStore = () => {
             },
             SET_TOKEN (state, token) {
                 state.token = token
+                state.authenticated = true
             },
             SET_ACTIVE_SUBCAT(state, subcat) {
                 state.activeSubcat = subcat 
@@ -228,6 +230,9 @@ const createStore = () => {
             },
             getActiveFiche (state) {
                 return state.activeFiche
+            },
+            isAuthenticated (state) {
+                return state.authenticated
             }
         }
     })
