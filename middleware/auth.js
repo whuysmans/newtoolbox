@@ -1,4 +1,7 @@
 export default function (context) {
+    if (process.server && !context.req) {
+        return context.redirect('/login')
+    }
     if (process.server) {
         if (context.req && context.req.url !== '/login') {
             if(!context.req.headers.cookie) {
