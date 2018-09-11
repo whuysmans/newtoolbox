@@ -4,13 +4,12 @@ export default function (context) {
             if(!context.req.headers.cookie) {
                 return context.redirect('/login')
             }
-            console.log(context.req.headers)
             const jwtCookie = context.req.headers.cookie.split(';').find( c => c.trim().startsWith('token=') )
-            console.log(jwtCookie)
             if(!jwtCookie) {
                 return context.redirect('/login')
             }
             const token = jwtCookie.split('=')[1]
+            context.store.dispatch('setAuthenticated', true)
         }
     } else if (process.client) {
         if (context.route.path !== '/login') {

@@ -82,6 +82,9 @@ const createStore = () => {
             },
             SET_ACTIVE_FICHE (state, fiche) {
                 state.activeFiche = fiche
+            },
+            SET_AUTHENTICATED (state, bool) {
+                state.authenticated = bool
             }
         },
         actions: {
@@ -122,6 +125,9 @@ const createStore = () => {
             },
             setActiveFiche (context, fiche) {
                 context.commit('SET_ACTIVE_FICHE', fiche)
+            },
+            setAuthenticated (context, bool) {
+                context.commit('SET_AUTHENTICATED', bool)
             }
         },
         getters: {
