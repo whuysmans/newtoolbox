@@ -88,7 +88,10 @@ const createStore = () => {
             }
         },
         actions: {
-            async nuxtServerInit ({commit}, state) {
+            async nuxtServerInit ({commit}, {req}) {
+                if (req.headers.coockie && req.headers.coockie.token) {
+                    commit('SET_AUTHENTICATED', true)
+                }
                 let results = await Promise.all([
                     axios.get(process.env.baseUrl + 'infofiches'),
                     axios.get(process.env.baseUrl + 'kernthemas'),
