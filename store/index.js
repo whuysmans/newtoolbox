@@ -89,7 +89,7 @@ const createStore = () => {
         },
         actions: {
             async nuxtServerInit ({commit}, {req}) {
-                if (req.headers && req.headers.coockie && req.headers.coockie.token) {
+                if (req && req.headers && req.headers.coockie && req.headers.coockie.token) {
                     commit('SET_AUTHENTICATED', true)
                 }
                 let results = await Promise.all([
