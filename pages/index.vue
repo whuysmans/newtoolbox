@@ -31,7 +31,7 @@ export default {
   },
   created () {
     if (!this.$store.getters.isAuthenticated) {
-      this.$router.push('/')
+      this.$router.push('/login')
     }
     if (this.$route.query) {
       if (this.$route.query.thema) {

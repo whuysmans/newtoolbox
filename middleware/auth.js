@@ -11,6 +11,7 @@ export default function (context) {
                 return context.redirect('/login')
             }
             const token = jwtCookie.split('=')[1]
+            context.store.dispatch('setAuthenticated', true)
         }
     } else if (process.client) {
         if (context.route.path !== '/login') {
