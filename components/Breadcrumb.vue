@@ -41,14 +41,14 @@ export default {
          'getRelatedSubcats'
        ]),
        handleThemaClick (event) {
-           this.setActiveThema(event.target.outerText.trim())
+           this.setActiveThema(event.target.innerText.trim())
            this.setActiveSubcat('')
            this.setActiveFiche('')
            this.setShowFilter(true)
        },
        handleSubcatClick (event) {
            this.setActiveThema(this.fiche.Kernthemas.display.trim())
-           this.setActiveSubcat(event.target.outerText.trim())
+           this.setActiveSubcat(event.target.innerText.trim())
            this.setActiveFiche('')
            this.setShowFilter(true)
        },
