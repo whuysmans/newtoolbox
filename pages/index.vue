@@ -10,7 +10,6 @@
           <img :src="homeInfo.Afbeelding" />
         </div>
       </section>
-      <aside class="article-meta editor-content box" v-html="homeInfo.Extra"></aside>
     </article>
   </section>
 </template>
