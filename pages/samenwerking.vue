@@ -9,8 +9,8 @@
       </section>
       <aside class="article-meta editor-content box">
         Partnerscholen: Gemeentelijk Technisch Instituut Sint-Jozef Kalmthout, Sint-Jozefinstituut Kontich, Sint-Michielscollege Schoten, Sint-Norbertusinstituut Duffel.
-        KdG-medewerkers: Debbie De Neve, An Leroy, Werner Huysmans, Erika Rosiers, Wouter Smets.
-        Contact: debbie.deneve@kdg.be
+        <br />KdG-medewerkers: Debbie De Neve, An Leroy, Werner Huysmans, Erika Rosiers, Wouter Smets.
+        <br />Contact: debbie.deneve@kdg.be
       </aside>
     </article>
   </section>
