@@ -26,7 +26,31 @@ export default {
     ...mapGetters([
          'getActiveThema',
          'getActiveSubcat'
-     ])
+     ]),
+    addListeners () {
+      this._links = this.$el.getElementsByTagName('a')
+      for (let i = 0; i < this._links.length; i++) {
+          if (this._links[i].classList.contains('internal')) {
+              this._links[i].addEventListener('click', this.navigate, false)
+          }
+      }
+    
+    },
+    removeListeners () {
+        for (let i = 0; i < this._links.length; i++) {
+            this._links[i].removeEventListener('click', this.navigate, false)
+        }
+    },
+    navigate (event) {
+        const href = event.target.getAttribute('href')
+        if (href) {
+            event.preventDefault()
+            this.$router.push(href)
+        }
+    }
+  },
+  mounted () {
+    this.addListeners()
   },
   created () {
     if (!this.$store.getters.isAuthenticated) {
@@ -57,6 +81,11 @@ export default {
     filterIsActive () {
       return this.getActiveThema() !== ''
     }
+  },
+  watch: {
+      '$route.path': function () {
+         this.removeListeners() 
+      }
   }
 }
 </script>
