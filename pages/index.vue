@@ -83,7 +83,7 @@ export default {
     }
   },
   watch: {
-      '$route.path': function () {
+      'this.$route.path': function () {
          this.removeListeners() 
       }
   }
