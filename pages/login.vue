@@ -20,6 +20,7 @@
                                     placeholder="wachtwoord"
                                     ref="pw-login"
                                     autofocus
+                                    autocomplete="nope"
                                     @keyup.enter="handleSubmit">
                                 <span class="icon is-small is-left">
                                     <i class="fa fa-lock"></i>
