@@ -53,9 +53,9 @@ export default {
     this.addListeners()
   },
   created () {
-    if (!this.$store.getters.isAuthenticated) {
-      this.$router.push('/login')
-    }
+    //if (!this.$store.getters.isAuthenticated) {
+      //this.$router.push('/login')
+    //}
     if (this.$route.query) {
       if (this.$route.query.thema) {
         this.$store.dispatch('setActiveThema', this.$route.query.thema)
