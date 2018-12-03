@@ -92,24 +92,21 @@ export default {
             .style("text-anchor", (d) => {
                 return d.children ? "end" : "start"
             })
+            .attr("data-link", (d) => {
+                return createDataLink(d)
+            })
+            .attr("data-text", (d) => {
+                return createDataText(d)
+            })
+            .attr("data-link-type", (d) => {
+                return createDataType(d)
+            })
             .html( (d) => {
                 this.data.name = d.data.name
-                let navLink = ''
-                switch (d.depth) {
-                    case 0:
-                    navLink += 'Toolbox'
-                    break
-                    case 1:
-                    navLink += `<a href="/?thema=${d.data.name}" data-link-type="thema" data-show-filter="true">${d.data.name}</a>`
-                    break
-                    case 2:
-                    navLink += `<a href="/?thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}" data-link-type="subcat" data-show-filter="true">${d.data.name}</a>`
-                    break
-                    default:
-                    navLink += `<a href="/${d.data.name}" data-link-type="fiche">${d.data.title}</a>`
-                }
-                return navLink
+                return createNavLink(d)
             })
+
+        
 
         function walk (startNode, mode) {
             let stack = []
@@ -129,6 +126,70 @@ export default {
                     }
                 }
             }
+        }
+
+        function createDataType (d) {
+            let dataType = ''
+            switch (d.depth) {
+                case 0:
+                dataType += 'root'
+                case 1:
+                dataType += 'thema'
+                break
+                case 2:
+                dataType += 'subcat'
+                break
+                default:
+                dataType += 'fiche'
+            }
+            return dataType
+        }
+
+        function createDataLink (d) {
+            let dataLink = ''
+            switch (d.depth) {
+                case 1:
+                dataLink += `thema=${d.data.name}`
+                break
+                case 2:
+                dataLink += `thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}`
+                case 3:
+                dataLink += `${d.data.name}`
+            }
+            return dataLink
+        }
+
+        function createDataText (d) {
+            let dataText = ''
+            switch (d.depth) {
+                case 0:
+                dataText += 'Toolbox'
+                break
+                case 3:
+                dataText += d.data.title
+                break
+                default:
+                dataText += d.data.name
+            }
+            return dataText
+        }
+
+        function createNavLink (d) {
+            let navLink = ''
+                switch (d.depth) {
+                    case 0:
+                    navLink += 'Toolbox'
+                    break
+                    case 1:
+                    navLink += `<a href="/?thema=${d.data.name}" data-link-type="thema" data-show-filter="true">${d.data.name}</a>`
+                    break
+                    case 2:
+                    navLink += `<a href="/?thema=${d.parent.data.name}&subcat=${d.parent.parent.data.name}" data-link-type="subcat" data-show-filter="true">${d.data.name}</a>`
+                    break
+                    default:
+                    navLink += `<a href="/${d.data.name}" data-link-type="fiche">${d.data.title}</a>`
+                }
+            return navLink
         }
 
         function markPath (startNode) {
@@ -194,6 +255,23 @@ export default {
             }
         }
 
+        function ieFix (context) {
+            let svgElement = document.getElementsByTagName('svg')[0]
+            let textNodes = Array.from(svgElement.getElementsByTagName('text'))
+            textNodes.map( (textNode) => {
+                let dataLinkType = textNode.getAttribute("data-link-type")
+               if (textNode.querySelector("a") === null) {
+                textNode.textContent = textNode.getAttribute("data-text")
+                if (dataLinkType === 'fiche') {
+                    textNode.addEventListener('click', (e) => {
+                        let url = textNode.getAttribute("data-link")
+                        context.$router.push(`/${url}`)
+                    })
+                }
+               } 
+            })
+        }
+        ieFix(this)
         this.addListeners()
         getDeepestActiveNode()
        

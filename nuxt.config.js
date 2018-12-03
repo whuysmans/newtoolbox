@@ -77,6 +77,9 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    vendor: [
+      'babel-es6-polyfill'
+    ],
     /*
     ** Run ESLint on save
     */

@@ -142,3 +142,6 @@ path.sub-tree {
   font-weight: 700;
 }
 
+.node text[data-link-type="fiche"] {
+    cursor: pointer;
+}
