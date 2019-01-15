@@ -1,6 +1,6 @@
 <template>
   <section class="page-content container">
-    <article class="home">
+    <article class="home" v-if="!getShowFilter()">
       <header class="article-header">
         <h1 class="article-title">Toolbox Formatieve Evaluatie</h1>
       </header>
@@ -25,7 +25,8 @@ export default {
   methods: {
     ...mapGetters([
          'getActiveThema',
-         'getActiveSubcat'
+         'getActiveSubcat',
+         'getShowFilter'
      ]),
     addListeners () {
       this._links = this.$el.getElementsByTagName('a')
