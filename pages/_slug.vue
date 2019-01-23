@@ -3,7 +3,7 @@
 <div class="modal-background"></div>
 <div class="modal-content"> -->
 <section class="page-content container">
-    <article class="fiche">
+    <article class="fiche" v-if="!getShowFilter()">
         <header class="article-header">
             <h1 class="article-title">
                 {{ fiche.Titel }}
@@ -35,6 +35,7 @@ import PageHeader from '../components/PageHeader'
 import Breadcrumb from '../components/Breadcrumb'
 import Filter from '../components/Filter'
 import { mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   components: {
       'fiche-content': FicheContent,
@@ -72,6 +73,9 @@ export default {
             'setActiveSubcat',
             'setActiveThema',
             'setActiveFiche'
+        ]),
+        ...mapGetters([
+            'getShowFilter'
         ]),
         addListeners () {
             this._links = this.$el.getElementsByTagName('a')
