@@ -1,6 +1,6 @@
 <template>
   <section class="page-content container">
-    <article class="home" v-if="!getShowFilter()">
+    <article class="home" v-show="!getShowFilter()">
       <header class="article-header">
         <h1 class="article-title">Toolbox Formatieve Evaluatie</h1>
       </header>
@@ -33,6 +33,14 @@ export default {
       for (let i = 0; i < this._links.length; i++) {
           if (this._links[i].classList.contains('internal')) {
               this._links[i].addEventListener('click', this.navigate, false)
+          }
+          if (this._links[i].classList.contains('triggerMenu')) {
+              this._links[i].addEventListener('click', (event) => {
+                event.preventDefault()
+                let target = this._links[i].dataset['target']
+                this.$store.dispatch('setActiveThema', target)
+                this.$store.dispatch('setShowFilter', true)
+              })
           }
       }
     
