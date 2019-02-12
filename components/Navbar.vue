@@ -62,8 +62,8 @@
             <nuxt-link to="/bibliografie" class="navbar-item is-hoverable" @click.native="handleClearFilterClick()">Bibliografie</nuxt-link>
             <nuxt-link to="/samenwerking" class="navbar-item is-hoverable" @click.native="handleClearFilterClick()">Samenwerking</nuxt-link>
             <a href="https://kdg.be" class="navbar-item is-hoverable navbar-item-logo">
-              <img src="/Kdg-logo_nl_white.png" class="is-hidden-touch">
-              <img src="/Kdg-logo_nl_black.png" class="is-hidden-desktop">
+              <img src="/Kdg-logo_Expert_nl_white.png" class="is-hidden-touch">
+              <img src="/Kdg-logo_Expert_nl_black.png" class="is-hidden-desktop">
             </a>
           </div>
       </div>

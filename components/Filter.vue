@@ -24,7 +24,7 @@
     </ul>
     <ul class="is-hidden-touch">
       <li class="tab-sitemap">
-        <nuxt-link to="/overzicht" @click.native="setShowFilter(false)">
+        <nuxt-link class="cta-button" to="/overzicht" @click.native="setShowFilter(false)">
           <span class="icon is-small">
               <i class="fas fa-sitemap"></i>
           </span>

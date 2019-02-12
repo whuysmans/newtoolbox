@@ -23,7 +23,9 @@ $medium-gray: #cacaca;
 $dark-gray: #333333;
 $black: #0a0a0a;
 $white: #ffffff;
-
+$sandybrown: #f5a65b;
+$khaki: #c1cc99;
+$dark-green: #01252a;
 
 // // new colours!!
 // $azure: #55efc4; //#1abc9c;
@@ -87,6 +89,17 @@ button {
       padding: 0;
   }
 }
+
+.cta-button {
+  background: $dark-green;
+  color: $white!important;
+  font-weight: bold;
+  text-decoration: underline;
+  border-radius: 5px !important;
+  margin-right: 1em;
+}
+
+
 
 
 
