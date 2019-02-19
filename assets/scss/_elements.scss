@@ -72,13 +72,15 @@ a, a:hover, a:visited, a:active {
   }
 }
 .navbar-item-logo {
+  padding: 0 .35rem;
   img {
     display: block;
-    height: 20px;
-    @include from($desktop) {
-      height: 25px;
-      //padding-bottom: 5px;
-    }
+    height: 32px;
+    height: 32px;
+    // @include from($desktop) {
+    //   height: 25px;
+    //   //padding-bottom: 5px;
+    // }
   }
 }
 .navbar-end {

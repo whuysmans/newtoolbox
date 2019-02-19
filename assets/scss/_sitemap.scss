@@ -154,6 +154,6 @@ path.sub-tree {
 }
 
 
-g.node * a {
+g.node * a[data-link-type="fiche"] {
     text-decoration: underline;
 }
