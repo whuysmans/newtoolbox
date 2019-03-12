@@ -20,7 +20,7 @@ module.exports = {
   ],
 
   'google-analytics': {
-    id: 'UA-123790758-1'
+    id: 'UA-123790758-2'
   },
 
   sitemap: {
