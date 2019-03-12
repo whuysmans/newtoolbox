@@ -7,7 +7,7 @@
       <section class="article-content columns">
         <div class="editor-content column" v-html="homeInfo.Beschrijving"></div>
         <div class="article-figure column">
-          <img :src="homeInfo.Afbeelding" />
+          <img :src="homeInfo.Afbeelding" alt="een bekertje inspiratie" />
         </div>
       </section>
     </article>
