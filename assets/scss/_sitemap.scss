@@ -76,6 +76,13 @@
     stroke-width: 1.5px;
 } 
 
+.grow-link {
+    transition: all .15s ease-in-out;
+}
+.grow-link:hover {
+    transform: scale(1.2);
+}
+
 .node.leren-bijsturen circle {
     fill: $pink;
 }
@@ -144,4 +151,9 @@ path.sub-tree {
 
 .node text[data-link-type="fiche"] {
     cursor: pointer;
+}
+
+
+g.node * a[data-link-type="fiche"] {
+    text-decoration: underline;
 }

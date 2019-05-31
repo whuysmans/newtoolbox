@@ -1,7 +1,7 @@
 <template>
     <article class="sitemap">
         <header class="article-header">
-          <h1 class="article-title">Sitemap</h1>
+          <h1 class="article-title">Overzicht</h1>
         </header>
         <section class="article-content">
           <div id="sitemap-container" class="svg-container">
@@ -85,6 +85,7 @@ export default {
             // .on("mouseout", handleMouseOut)
 
         node.append("text")
+            .attr("class", "grow-link")
             .attr("dy", 3)
             .attr("x", (d) => {
                 return d.children ? -8 : 8
