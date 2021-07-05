@@ -63,12 +63,12 @@ module.exports = {
     baseUrl: 'https://cipt.be/toolbox/wp-json/toolbox/v1/'
   },
 
-  router: {
-    scrollBehavior (to, from, savedPosition) {
-      return { x: 0, y: 0}
-    }
-    //middleware: 'auth'
-  },
+  // router: {
+  //   scrollBehavior (to, from, savedPosition) {
+  //     return { x: 0, y: 0}
+  //   }
+  //   //middleware: 'auth'
+  // },
 
   /*
   ** Customize the progress bar color
